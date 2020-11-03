@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.Objects;
+
 import static javafx.application.Application.launch;
 
 /**
@@ -23,11 +26,11 @@ public class Main extends Application{
      * Sets up the stage for the GUI with title Transaction Manager
      *
      * @param primaryStage Stage for the GUI
-     * @throws Exception incase this doesn't work
+     * @throws Exception in case this doesn't work
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("createOrder.fxml"));
+        Parent root = FXMLLoader.load((getClass().getResource("/SandwichManager/createOrder.fxml")));
         primaryStage.setTitle("Sandwich Manager");
         primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();
