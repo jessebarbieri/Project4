@@ -1,9 +1,10 @@
 package SandwichManager;
 
-import java.util.ArrayList;
-
-public class Order implements Customizable {
-    public static int lineNumber;
+public class Fish extends Sandwich {
+    @Override
+    public double price() {
+        return 0;
+    }
 
     @Override
     public boolean add(Object obj) {
