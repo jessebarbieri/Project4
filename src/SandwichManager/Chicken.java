@@ -3,7 +3,7 @@ package SandwichManager;
 public class Chicken extends Sandwich{
     @Override
     public double price() {
-        return 0;
+        return 8.99;
     }
 
     @Override

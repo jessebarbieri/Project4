@@ -7,11 +7,13 @@ public class Order implements Customizable {
 
     @Override
     public boolean add(Object obj) {
+        lineNumber++;
         return false;
     }
 
     @Override
     public boolean remove(Object obj) {
+        lineNumber--;
         return false;
     }
 }

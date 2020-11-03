@@ -3,7 +3,7 @@ package SandwichManager;
 public class Fish extends Sandwich {
     @Override
     public double price() {
-        return 0;
+        return 12.99;
     }
 
     @Override
