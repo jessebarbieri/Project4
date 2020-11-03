@@ -1,5 +1,8 @@
 package SandwichManager;
 
+/**
+ * Defining enum which has info for all extra ingredients
+ */
 public class Extras {
-    // This may or may not be a temporary placeholder class until we learn more about it's use
+
 }

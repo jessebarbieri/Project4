@@ -1,118 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SandwichManager.createOrderController">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <items>
-        <AnchorPane>
-          <children>
-                  <GridPane layoutX="11.0" layoutY="8.0" prefHeight="117.0" prefWidth="200.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.97409057617188" minWidth="10.0" prefWidth="99.47409057617188" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.44818878173828" minWidth="10.0" prefWidth="100.52590942382812" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <CheckBox fx:id="chicken" mnemonicParsing="false" text="Chicken" />
-                        <CheckBox fx:id="beef" mnemonicParsing="false" text="Beef" GridPane.rowIndex="2" />
-                        <CheckBox fx:id="fish" mnemonicParsing="false" text="Fish" GridPane.rowIndex="1" />
-                     </children>
-                  </GridPane>
-          </children>
-        </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-          <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" />
-          </content>
-        </ScrollPane>
-        <AnchorPane>
-          <children>
-                  <Button fx:id="actionBtn" layoutX="80.0" layoutY="148.0" mnemonicParsing="false" onAction="#setOnAction" text="Button" />
-                  <TextField fx:id="inputField" layoutX="28.0" layoutY="209.0" />
-          </children>
-        </AnchorPane>
-      </items>
-    </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
-      <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
-          <font>
-            <Font size="11.0" fx:id="x3" />
-          </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
-        </Label>
-        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
-      </children>
-      <padding>
-        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-      </padding>
-    </HBox>
-  </children>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SandwichManager.createOrderController">
+   <children>
+      <Label layoutX="42.0" layoutY="23.0" text="Sandwich Type" />
+      <ListView layoutX="42.0" layoutY="186.0" prefHeight="200.0" prefWidth="154.0" />
+      <Label layoutX="41.0" layoutY="163.0" text="Ingredient List" />
+      <ListView layoutX="169.0" layoutY="48.0" prefHeight="86.0" prefWidth="105.0" />
+      <Label layoutX="169.0" layoutY="23.0" text="Base Ingredients" />
+      <ImageView fitHeight="124.0" fitWidth="169.0" layoutX="309.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="316.0" layoutY="163.0" text="All Ingredients added" />
+      <Button layoutX="207.0" layoutY="240.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Add &gt;" />
+      <Button layoutX="207.0" layoutY="286.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="&lt; Remove" />
+      <ListView layoutX="316.0" layoutY="186.0" prefHeight="200.0" prefWidth="154.0" />
+      <Button layoutX="497.0" layoutY="273.0" mnemonicParsing="false" text="Add to Order" />
+      <Button fx:id="showOrder" layoutX="497.0" layoutY="306.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="89.0" text="Show Order" />
+      <ComboBox fx:id="sandwichType" layoutX="41.0" layoutY="48.0" onAction="#getSandwichType" prefHeight="27.0" prefWidth="105.0" />
+   </children>
+</AnchorPane>

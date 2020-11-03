@@ -1,14 +1,15 @@
 package SandwichManager;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.stage.Stage;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -18,50 +19,29 @@ import java.util.ResourceBundle;
 public class createOrderController implements Initializable {
 
     @FXML
-    public TextField inputField;
-    @FXML
-    public Button actionBtn;
+    ComboBox<Sandwich> sandwichType;
+
+    Sandwich[] sandwichArr = {Fish, Chicken, Beef};
 
     @FXML
-    CheckBox chicken;
-    @FXML
-    CheckBox beef;
-    @FXML
-    CheckBox fish;
+    Button showOrder;
+
+    ToggleGroup tg = new ToggleGroup();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //When button clicked, load window and pass data
-        System.out.println("Program is starting...\n");
-        chicken.setDisable(false);
-        fish.setDisable(false);
-        beef.setDisable(false);
-        chicken.setSelected(true);
+        System.out.println("Program is starting\n");
+        sandwichType.setItems(FXCollections.observableArrayList(sandwichArr));
     }
 
-    public void setOnAction(){
-        actionBtn.setDisable(false);
-        loadSceneAndSendMessage();
+    /**
+     * A void method that sets radio buttons into a group for a single selection
+     */
+
+
+    public void getSandwichType(){
+        sandwichType.itemsProperty();
     }
 
-    private void loadSceneAndSendMessage() {
-        try {
-            //Load second scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetail.fxml"));
-            Parent root = loader.load();
-
-            //Get controller of scene2
-            orderDetailController scene2Controller = loader.getController();
-            //Pass whatever data you want. You can have multiple method calls here
-            scene2Controller.transferMessage(inputField.getText());
-
-            //Show scene 2 in new window
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Second Window");
-            stage.show();
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
-    }
 }
