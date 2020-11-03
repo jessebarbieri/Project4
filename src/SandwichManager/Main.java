@@ -1,9 +1,19 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
+<<<<<<< HEAD
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.Stage;
+=======
+/**
+ *
+ */
+public class Main {
+>>>>>>> d04c0472490b51eb7a857eb68cc6ab8142d3cd3b
 
 public class Main extends Application {
 
