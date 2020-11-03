@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -21,10 +22,21 @@ public class createOrderController implements Initializable {
     @FXML
     public Button actionBtn;
 
+    @FXML
+    CheckBox chicken;
+    @FXML
+    CheckBox beef;
+    @FXML
+    CheckBox fish;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //When button clicked, load window and pass data
         System.out.println("Program is starting...\n");
+        chicken.setDisable(false);
+        fish.setDisable(false);
+        beef.setDisable(false);
+        chicken.setSelected(true);
     }
 
     public void setOnAction(){

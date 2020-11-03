@@ -7,8 +7,4 @@ public class OrderLine {
     private Sandwich sandwich;
     private double price;
 
-    ArrayList<Order> orderList = new ArrayList<>();
-
-
-
 }
