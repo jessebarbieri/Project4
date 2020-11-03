@@ -36,12 +36,4 @@ public class Main extends Application{
         primaryStage.show();
     }
 
-    /**Not sure if this is how two stages are created
-    public void Stage2(Stage secondaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("stage2.fxml"));
-        secondaryStage.setTitle("Order Details");
-        secondaryStage.setScene(new Scene(root, 700, 400));
-        secondaryStage.show();
-    }**/
-
 }
