@@ -1,0 +1,76 @@
+Project Folder:
+- Java files
+- 2 Controller Files
+- 2 FXML Files
+- JUnit Test Classes
+
+Requirements:
+1) Default Select Chicken Sandwich (initialize as Chicken)
+2) Upon selecting the sandwich type, an IMAGE of the sandwich is displayed featuring:
+    - Basic Ingredients
+    - Price of the Sandwich
+3) 10 extra ingredients displayed - BUT only 6 MAX of those can be added to the sandwich
+    - Sandwich can be added to order without option extras
+    - Customer can add or remove extra ingredients
+    - No duplicate extras, each extra selection can only be added once
+4) Price:
+    - System tracks the price and displays the price AS ingredients are selected and removed
+5) Order:
+    - Multiple sandwiches allowed
+    - Serial Number identifies each sandwich, each added sandwich is an order line on the order
+6) Second Stage Includes:
+    - A new window that shows order details with a list of sandwiches
+    - For each sandwich -> serial number, sandwich type, basic ingredients, extra ingredients, and price
+    - total amount displayed at the end of the list
+
+    Functions:
+    - Select a sandwich and add the same sandwich with a new serial number
+    - Select and remove the sandwich without recording serial numbers on the order
+    - Clear the order, remove all the sandwiches
+    - Save order to file, one order at a time
+
+MUST USES AND LIMITATIONS:
+* Any JavaFX components
+(a) ComboBox for the sandwich type, Chicken, Beef and Fish.
+(b) ImageView for the sandwich images; in this case, you need 3 different images.
+(c) ListView – one for listing the extra ingredient options and one for the extra ingredients selected.
+
+- All I/O done in GUI, use of console is -10 points
+- MUST HAVE A SECOND STAGE or -10 points , -1 for each detail not displayed
+- MUST HAVE second.fxml and second controller or -10 points
+- MUST HAVE a Clear function
+- MUST HAVE a "Back" button to revert to first window and close the second (-2 for violations)
+- CAN USE ArrayList to handle a list
+- MUST INCLUDE THE CLASSES LISTED and CANNOT add additional instance variables
+    EXCEPT:
+    - necessary static variables and constants
+- Make sure to use encapsulation and polymorphism (aka good OO practices)
+
+Classes:
+- Chicken, Beef, Fish extends Sandwhich class
+    - price () abstract method: returns price for sandwich
+    - override toString() method
+
+Information:
+Chicken -
+    Basic: Fried Chicken, Spicy Sauce, Pickles
+    Price: 8.99
+Beef -
+    Basic: Roast Beef, Provolone Cheese, Mustard
+    Price: 10.99
+Fish -
+    Basic: Grilled Snapper, Cilantro, Lime
+    Price: 12.99
+
+Extras -
+    Price: 1.99 per extra ingredient
+    Ingredients: Subject to our personal preference, must be 10 options (lol I'm gonna rip off Wawa for this)
+
+
+REMEMBER:   Save order details to an external file. MUST be consistent with GUI
+            Catch ALL exceptions, no crashing allowed
+
+Testing:    Create a JUnit test class for the Order class. You must test all the public methods.
+            Use the Black-Box testing technique to design the test cases.
+            You must show all test cases are passed. This part is worth 10 points.
+
