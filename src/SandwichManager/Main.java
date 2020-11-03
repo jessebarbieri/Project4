@@ -1,4 +1,4 @@
-package SandwhichManager;
+package SandwichManager;
 
 public class Main {
 
