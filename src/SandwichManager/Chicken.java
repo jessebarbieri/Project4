@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Chicken extends Sandwich{
 
+    String[] basic = new String[3];
+
     @Override
     public double price() {
         return 8.99;

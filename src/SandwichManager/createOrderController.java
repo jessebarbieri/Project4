@@ -86,10 +86,8 @@ public class createOrderController implements Initializable {
     }
 
     public void setBasicList(){
-        if (sandwichType.equals("Chicken")){
             Sandwich chicken = new Chicken();
-
         }
-    }
+
 
 }

@@ -23,5 +23,4 @@ public abstract class Sandwich implements Customizable {
     public String toString() {
         return null;
     }
-
 }
