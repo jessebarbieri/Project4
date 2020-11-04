@@ -41,6 +41,9 @@ public class createOrderController implements Initializable {
     ToggleGroup tg = new ToggleGroup();
     public ImageView imageSelect;
 
+    /**
+     * This void method sets the image that correlates to the proper selected sandwich
+     */
     public void setImageSelect() {
         if(sandwichType.getSelectionModel().getSelectedIndex() == 0){
             imageSelect.fitWidthProperty();
