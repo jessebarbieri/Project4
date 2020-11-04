@@ -27,7 +27,9 @@ public class createOrderController implements Initializable {
 
     ListView basicList = new ListView();
 
-    // Sandwich[] sandwichArr = {Fish, Chicken, Beef};
+    // sandwich db
+
+
     // This is just to display the options on the GUI
     String[] sandwichSelect = {"Fish", "Chicken", "Beef"};
 
