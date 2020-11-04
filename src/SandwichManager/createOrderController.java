@@ -25,6 +25,8 @@ public class createOrderController implements Initializable {
     @FXML
     ComboBox<String> sandwichType;
 
+    ListView basicList = new ListView();
+
     // Sandwich[] sandwichArr = {Fish, Chicken, Beef};
     // This is just to display the options on the GUI
     String[] sandwichSelect = {"Fish", "Chicken", "Beef"};
@@ -68,17 +70,24 @@ public class createOrderController implements Initializable {
         sandwichType.setItems(FXCollections.observableArrayList(sandwichSelect));
         sandwichType.getSelectionModel().select(1);
         imageSelect.setImage(chickenPic);
+        setBasicList();
     }
 
     /**
      * A void method that sets radio buttons into a group for a single selection
      */
 
-
     public void getSandwichType(){
 
         sandwichType.itemsProperty();
         setImageSelect();
+    }
+
+    public void setBasicList(){
+        if (sandwichType.equals("Chicken")){
+            Sandwich chicken = new Chicken();
+
+        }
     }
 
 }

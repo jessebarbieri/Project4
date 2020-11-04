@@ -1,6 +1,9 @@
 package SandwichManager;
 
+import java.util.Arrays;
+
 public class Chicken extends Sandwich{
+
     @Override
     public double price() {
         return 8.99;

@@ -12,7 +12,7 @@
       <Label layoutX="54.0" layoutY="23.0" text="Sandwich Type" />
       <ListView layoutX="26.0" layoutY="255.0" prefHeight="200.0" prefWidth="150.0" />
       <Label layoutX="57.0" layoutY="232.0" text="Ingredient List" />
-      <ListView layoutX="198.0" layoutY="48.0" prefHeight="150.0" prefWidth="150.0" />
+      <ListView fx:id="baseList" layoutX="198.0" layoutY="48.0" prefHeight="150.0" prefWidth="150.0" />
       <Label layoutX="222.0" layoutY="23.0" text="Base Ingredients" />
       <Label layoutX="319.0" layoutY="232.0" text="All Ingredients added" />
       <Button layoutX="198.0" layoutY="377.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Add &gt;" />
