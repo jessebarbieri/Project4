@@ -32,7 +32,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load((getClass().getResource("/SandwichManager/createOrder.fxml")));
         primaryStage.setTitle("Sandwich Manager");
-        primaryStage.setScene(new Scene(root, 700, 450));
+        primaryStage.setScene(new Scene(root, 600, 480));
         primaryStage.show();
     }
 
