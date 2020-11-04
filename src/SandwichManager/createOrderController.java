@@ -67,6 +67,7 @@ public class createOrderController implements Initializable {
         System.out.println("Program is starting\n");
         sandwichType.setItems(FXCollections.observableArrayList(sandwichSelect));
         sandwichType.getSelectionModel().select(1);
+        imageSelect.setImage(chickenPic);
     }
 
     /**
