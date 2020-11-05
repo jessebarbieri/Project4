@@ -2,6 +2,9 @@ package SandwichManager;
 
 import java.util.ArrayList;
 
+/**
+ * Creates an ArrayList of Orders with various OrderLines
+ */
 public class Order implements Customizable {
     public static int lineNumber;
     private ArrayList<OrderLine> orderlines;
@@ -13,20 +16,19 @@ public class Order implements Customizable {
 
     /**
      * Runs through orderline to search for the sandwich that needs to be removed
-     * @return boolean whether or not the sandwich has been found
+     * @return int which index the item was found at
      */
-    public boolean find(Sandwich s){
-        return false;
+    public int find(Sandwich s){
+        int res = -1; // -1 = not found
+        for(int i = 0; i < orderlines.size(); i++){
+            if(s.toString().equals(orderlines.get(i).toString())){
+                // same element
+                return i;
+            }
+        }
+        return res;
     }
 
-    /**
-     * Gets linenumber (order number)
-     * @return int the order number
-     */
-    public int getLineNumber(){
-        lineNumber = lineNumber + 1;
-        return lineNumber;
-    }
 
     @Override
     public boolean add(Object obj) {
