@@ -85,7 +85,6 @@ public class createOrderController implements Initializable {
     /**
      * A void method that sets radio buttons into a group for a single selection
      */
-
     public void getSandwichType(){
 
         sandwichType.itemsProperty();
