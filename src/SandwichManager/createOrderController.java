@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +29,9 @@ public class createOrderController implements Initializable {
 
     @FXML
     ListView basicList;
+
+    @FXML
+    Label viewPrice;
 
     // This is just to display the options on the GUI
     String[] sandwichSelect = {"Fish", "Chicken", "Beef"};
@@ -58,18 +62,21 @@ public class createOrderController implements Initializable {
             imageSelect.fitHeightProperty();
             imageSelect.setImage(fishPic);
             basicList.setItems(basicFish);
+            viewPrice.setText("$12.99");
         }
         else if (sandwichType.getSelectionModel().getSelectedIndex() == 1){
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(chickenPic);
             basicList.setItems(basicChicken);
+            viewPrice.setText("$8.99");
         }
         else if (sandwichType.getSelectionModel().getSelectedIndex() == 2){
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(beefPic);
             basicList.setItems(basicBeef);
+            viewPrice.setText("$10.99");
         }
     }
 
@@ -80,6 +87,7 @@ public class createOrderController implements Initializable {
         sandwichType.getSelectionModel().select(1);
         imageSelect.setImage(chickenPic);
         basicList.setItems(basicChicken);
+        viewPrice.setText("$8.99");
     }
 
     /**
