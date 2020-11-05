@@ -42,9 +42,9 @@ public class createOrderController implements Initializable {
     Button showOrder;
 
     // Declaring the images
-    Image chickenPic= new Image(getClass().getResourceAsStream("chicken-sandwich.png"));
-    Image beefPic= new Image(getClass().getResourceAsStream("beef-sandwich.png"));
-    Image fishPic= new Image(getClass().getResourceAsStream("fish-sandwich.png"));
+    Image chickenPic = new Image(getClass().getResourceAsStream("chicken-sandwich.png"));
+    Image beefPic = new Image(getClass().getResourceAsStream("beef-sandwich.png"));
+    Image fishPic = new Image(getClass().getResourceAsStream("fish-sandwich.png"));
 
 
     ToggleGroup tg = new ToggleGroup();
@@ -55,25 +55,24 @@ public class createOrderController implements Initializable {
     ObservableList<String> basicFish = FXCollections.observableArrayList("Grilled Snapper", "Cilantro", "Lime");
     ObservableList<String> basicBeef = FXCollections.observableArrayList("Roast Beef", "Provolone Cheese", "Mustard");
 
+
     /**
      * This void method sets the image that correlates to the proper selected sandwich
      */
     public void setImageSelect() {
-        if(sandwichType.getSelectionModel().getSelectedIndex() == 0){
+        if (sandwichType.getSelectionModel().getSelectedIndex() == 0) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(fishPic);
             basicList.setItems(basicFish);
             viewPrice.setText("$12.99");
-        }
-        else if (sandwichType.getSelectionModel().getSelectedIndex() == 1){
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 1) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(chickenPic);
             basicList.setItems(basicChicken);
             viewPrice.setText("$8.99");
-        }
-        else if (sandwichType.getSelectionModel().getSelectedIndex() == 2){
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 2) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(beefPic);
@@ -96,7 +95,7 @@ public class createOrderController implements Initializable {
     /**
      * A void method that sets radio buttons into a group for a single selection
      */
-    public void getSandwichType(){
+    public void getSandwichType() {
         sandwichType.itemsProperty();
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
         setImageSelect();
@@ -104,9 +103,10 @@ public class createOrderController implements Initializable {
 
     /**
      * add order selected to the array
+     *
      * @param sandwich string selected from GUI
      */
-    public void addOrder(String sandwich){
+    public void addOrder(String sandwich) {
         switch (sandwich) {
             case "Fish":
                 // create object
@@ -126,9 +126,21 @@ public class createOrderController implements Initializable {
         }
     }
 
+    public void setCreateOrderController(){
 
+    }
 
+    public void setShowOrder() throws IOException {
+        try {
+            Stage secondaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetails.fxml"));
+            Parent root1 = (Parent) loader.load();
+            orderDetailController control2 = loader.getController();
+            secondaryStage.setTitle("Order Details");
+            secondaryStage.show();
 
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
