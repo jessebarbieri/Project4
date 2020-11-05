@@ -1,6 +1,7 @@
 package SandwichManager;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,10 +26,8 @@ public class createOrderController implements Initializable {
     @FXML
     ComboBox<String> sandwichType;
 
-    ListView basicList = new ListView();
-
-    // sandwich db
-
+    @FXML
+    ListView basicList;
 
     // This is just to display the options on the GUI
     String[] sandwichSelect = {"Fish", "Chicken", "Beef"};
@@ -45,6 +44,11 @@ public class createOrderController implements Initializable {
     ToggleGroup tg = new ToggleGroup();
     public ImageView imageSelect;
 
+    // These observable ArrayLists serve the purpose of displaying basic ingredients.
+    ObservableList<String> basicChicken = FXCollections.observableArrayList("Fried Chicken", "Spicy Sauce", "Pickles");
+    ObservableList<String> basicFish = FXCollections.observableArrayList("Grilled Snapper", "Cilantro", "Lime");
+    ObservableList<String> basicBeef = FXCollections.observableArrayList("Roast Beef", "Provolone Cheese", "Mustard");
+
     /**
      * This void method sets the image that correlates to the proper selected sandwich
      */
@@ -53,16 +57,19 @@ public class createOrderController implements Initializable {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(fishPic);
+            basicList.setItems(basicFish);
         }
         else if (sandwichType.getSelectionModel().getSelectedIndex() == 1){
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(chickenPic);
+            basicList.setItems(basicChicken);
         }
         else if (sandwichType.getSelectionModel().getSelectedIndex() == 2){
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(beefPic);
+            basicList.setItems(basicBeef);
         }
     }
 
@@ -72,7 +79,7 @@ public class createOrderController implements Initializable {
         sandwichType.setItems(FXCollections.observableArrayList(sandwichSelect));
         sandwichType.getSelectionModel().select(1);
         imageSelect.setImage(chickenPic);
-        setBasicList();
+        basicList.setItems(basicChicken);
     }
 
     /**
@@ -85,9 +92,9 @@ public class createOrderController implements Initializable {
         setImageSelect();
     }
 
-    public void setBasicList(){
-          // itll be done
-        }
+
+
+
 
 
 }
