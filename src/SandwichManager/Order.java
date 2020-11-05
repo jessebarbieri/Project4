@@ -18,7 +18,7 @@ public class Order implements Customizable {
      * Runs through orderline to search for the sandwich that needs to be removed
      * @return int which index the item was found at
      */
-    public int find(Sandwich s){
+    public int find(Object s){
         int res = -1; // -1 = not found
         for(int i = 0; i < orderlines.size(); i++){
             if(s.toString().equals(orderlines.get(i).toString())){
@@ -32,7 +32,27 @@ public class Order implements Customizable {
 
     @Override
     public boolean add(Object obj) {
-        return false;
+        boolean res = false;
+        if(obj instanceof Fish){
+            // fish
+            res = true;
+            if(find(obj) != -1){
+                System.out.println("Added Sandwich");
+            }
+
+        }else if(obj instanceof Chicken){
+            // chicken
+            res = true;
+
+        }else if(obj instanceof Beef){
+            // beef
+            res = true;
+
+        }else{
+            System.out.println("This is not a sandwich. Please, try again.");
+        }
+
+        return res;
     }
 
     @Override
