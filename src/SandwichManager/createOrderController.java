@@ -24,6 +24,8 @@ import java.util.ResourceBundle;
 
 public class createOrderController implements Initializable {
 
+    Order currOrder = new Order();
+
     @FXML
     ComboBox<String> sandwichType;
 
@@ -88,15 +90,40 @@ public class createOrderController implements Initializable {
         imageSelect.setImage(chickenPic);
         basicList.setItems(basicChicken);
         viewPrice.setText("$8.99");
+        sandwichType.getSelectionModel().select("Chicken");
     }
 
     /**
      * A void method that sets radio buttons into a group for a single selection
      */
     public void getSandwichType(){
-
         sandwichType.itemsProperty();
+        addOrder(sandwichType.getSelectionModel().getSelectedItem());
         setImageSelect();
+    }
+
+    /**
+     * add order selected to the array
+     * @param sandwich string selected from GUI
+     */
+    public void addOrder(String sandwich){
+        switch (sandwich) {
+            case "Fish":
+                // create object
+                Fish f = new Fish();
+                currOrder.add(f);
+                break;
+            case "Chicken":
+                // create object
+                Chicken c = new Chicken();
+                currOrder.add(c);
+                break;
+            case "Beef":
+                // create object
+                Beef b = new Beef();
+                currOrder.add(b);
+                break;
+        }
     }
 
 
