@@ -90,6 +90,7 @@ public class createOrderController implements Initializable {
         basicList.setItems(basicChicken);
         viewPrice.setText("$8.99");
         sandwichType.getSelectionModel().select("Chicken");
+        basicList.setDisable(true);
     }
 
     /**
