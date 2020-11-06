@@ -30,6 +30,9 @@ public class createOrderController implements Initializable {
     ComboBox<String> sandwichType;
 
     @FXML
+    Button addOrder;
+
+    @FXML
     ListView basicList;
 
     @FXML
@@ -107,7 +110,7 @@ public class createOrderController implements Initializable {
      *
      * @param sandwich string selected from GUI
      */
-    public void addOrder(String sandwich) {
+    public void addOrder (String sandwich) {
         switch (sandwich) {
             case "Fish":
                 // create object
@@ -127,6 +130,12 @@ public class createOrderController implements Initializable {
         }
     }
 
+    public void setAddOrder(){
+        addOrder(sandwichType.getSelectionModel().getSelectedItem());
+
+        // Add to order button works based on our selection
+        System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
+    }
 
     public void setShowOrder() throws IOException {
         try {
