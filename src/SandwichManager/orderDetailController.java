@@ -19,9 +19,9 @@ public class orderDetailController {
     @FXML
     private TextField display;
 
-    //Receive message from scene 1
-    public void transferMessage(String message) {
-        //Display the message
-        display.setText(message);
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
     }
+
+
 }
