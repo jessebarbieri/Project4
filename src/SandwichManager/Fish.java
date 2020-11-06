@@ -2,10 +2,6 @@ package SandwichManager;
 
 public class Fish extends Sandwich {
 
-    public Fish(double p){
-        super(p);
-        p = this.price();
-    }
     @Override
     public double price() {
         return 12.99;

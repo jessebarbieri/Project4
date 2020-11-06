@@ -111,20 +111,17 @@ public class createOrderController implements Initializable {
         switch (sandwich) {
             case "Fish":
                 // create object
-                double priceF = 12.99;
-                Fish f = new Fish(priceF);
+                Fish f = new Fish();
                 currOrder.add(f);
                 break;
             case "Chicken":
                 // create object
-                double priceC = 8.99;
-                Chicken c = new Chicken(priceC);
+                Chicken c = new Chicken();
                 currOrder.add(c);
                 break;
             case "Beef":
                 // create object
-                double priceB = 10.99;
-                Beef b = new Beef(priceB);
+                Beef b = new Beef();
                 currOrder.add(b);
                 break;
         }
