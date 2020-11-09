@@ -114,17 +114,17 @@ public class createOrderController implements Initializable {
         switch (sandwich) {
             case "Fish":
                 // create object
-                Fish f = new Fish();
+                Sandwich f = new Fish();
                 currOrder.add(f);
                 break;
             case "Chicken":
                 // create object
-                Chicken c = new Chicken();
+                Sandwich c = new Chicken();
                 currOrder.add(c);
                 break;
             case "Beef":
                 // create object
-                Beef b = new Beef();
+                Sandwich b = new Beef();
                 currOrder.add(b);
                 break;
         }
@@ -134,15 +134,15 @@ public class createOrderController implements Initializable {
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
 
         // Add to order button works based on our selection
-        System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
+        //System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
     }
 
     public void setShowOrder() throws IOException {
         try {
             Stage secondaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetails.fxml"));
-            orderDetailController control2 = loader.getController();
             Parent root = loader.load();
+            orderDetailController control2 = loader.getController();
             secondaryStage.setScene(new Scene(root, 600,480));
             secondaryStage.setTitle("Order Details");
             secondaryStage.show();
