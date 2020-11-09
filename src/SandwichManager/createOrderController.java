@@ -101,7 +101,6 @@ public class createOrderController implements Initializable {
      */
     public void getSandwichType() {
         sandwichType.itemsProperty();
-        addOrder(sandwichType.getSelectionModel().getSelectedItem());
         setImageSelect();
     }
 
@@ -132,7 +131,6 @@ public class createOrderController implements Initializable {
 
     public void setAddOrder(){
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
-
         // Add to order button works based on our selection
         //System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
     }

@@ -18,6 +18,8 @@ public class Order implements Customizable {
      * Runs through orderline to search for the sandwich that needs to be removed
      * @return res which index the item was found at
      */
+
+    /*
     public int find(Object s){
         int res = -1; // -1 = not found
         for(int i = 0; i < orderlines.size(); i++){
@@ -29,11 +31,15 @@ public class Order implements Customizable {
         return res;
     }
 
+     */
+
     /**
      * Adds sandwiches to the order -- INCOMPLETE
      * @param obj any object of Sandwich
      * @return res if added or not
      */
+
+    /*
     @Override
     public boolean add(Object obj) {
         boolean res = false;
@@ -64,6 +70,29 @@ public class Order implements Customizable {
         }
 
         return res;
+    }
+
+    @Override
+    public boolean remove(Object obj) {
+        return false;
+    }
+
+     */
+
+    // Hey Arya since we're using ArrayList I don't think we need a find method as you've written above ^
+
+    @Override
+    public boolean add(Object obj) {
+        if(obj instanceof Chicken){
+            System.out.println("Added Chicken Sandwich");
+        }
+        else if(obj instanceof Fish){
+            System.out.println("Added Fish Sandwich");
+        }
+        else if(obj instanceof Beef){
+            System.out.println("Added Beef Sandwich");
+        }
+        return false;
     }
 
     @Override
