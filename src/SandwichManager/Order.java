@@ -83,27 +83,23 @@ public class Order implements Customizable {
     // Im def doing more bad than good here though
     @Override
     public boolean add(Object obj) {
-        for(int i=0; i < orderlines.size(); i++){
-            System.out.println("Order added: " + orderlines.get(i));
-            System.out.println("Index: " + i);
-        }
         if(obj instanceof Chicken){
-            Sandwich chicken = new Chicken();
             lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, chicken, chicken.price());
+            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Chicken) obj).price());
             orderlines.add(line);
+            System.out.println(line);
         }
         else if(obj instanceof Fish){
-            Sandwich fish = new Fish();
             lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, fish, fish.price());
+            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Fish) obj).price());
             orderlines.add(line);
+            System.out.println(line);
         }
         else if(obj instanceof Beef){
-            Sandwich beef = new Beef();
             lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, beef, beef.price());
+            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Beef) obj).price());
             orderlines.add(line);
+            System.out.println(line);
         }
 
         return false;
