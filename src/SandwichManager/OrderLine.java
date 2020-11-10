@@ -22,7 +22,17 @@ public class OrderLine {
 
     @Override
     public String toString(){
-        return lineNumber + " Sandwich Type: " + sandwich + " Price" + price;
+        String sandwichString = new String();
+        if (sandwich instanceof Chicken){
+            sandwichString = "Chicken";
+        }
+        else if (sandwich instanceof Fish){
+            sandwichString = "Fish";
+        }
+        else if (sandwich instanceof  Beef){
+            sandwichString = "Beef";
+        }
+        return lineNumber + " Sandwich Type: " + sandwichString + " Price: " + price;
     }
 
 }

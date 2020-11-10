@@ -80,18 +80,32 @@ public class Order implements Customizable {
      */
 
     // Hey Arya since we're using ArrayList I don't think we need a find method as you've written above ^
-
+    // Im def doing more bad than good here though
     @Override
     public boolean add(Object obj) {
+        for(int i=0; i < orderlines.size(); i++){
+            System.out.println("Order added: " + orderlines.get(i));
+            System.out.println("Index: " + i);
+        }
         if(obj instanceof Chicken){
-            System.out.println("Added Chicken Sandwich");
+            Sandwich chicken = new Chicken();
+            lineNumber++;
+            OrderLine line = new OrderLine(lineNumber, chicken, chicken.price());
+            orderlines.add(line);
         }
         else if(obj instanceof Fish){
-            System.out.println("Added Fish Sandwich");
+            Sandwich fish = new Fish();
+            lineNumber++;
+            OrderLine line = new OrderLine(lineNumber, fish, fish.price());
+            orderlines.add(line);
         }
         else if(obj instanceof Beef){
-            System.out.println("Added Beef Sandwich");
+            Sandwich beef = new Beef();
+            lineNumber++;
+            OrderLine line = new OrderLine(lineNumber, beef, beef.price());
+            orderlines.add(line);
         }
+
         return false;
     }
 
