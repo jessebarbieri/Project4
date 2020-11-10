@@ -135,7 +135,7 @@ public class createOrderController implements Initializable {
         //System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
     }
 
-    public void setShowOrder() throws IOException {
+    public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetails.fxml"));
