@@ -52,21 +52,21 @@ public class Order implements Customizable {
     @Override
     public boolean remove(Object obj) {
         if(obj instanceof Chicken){
-            lineNumber++;
+            lineNumber--;
             OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Chicken) obj).price());
-            orderlines.add(line);
+            orderlines.remove(line);
             System.out.println(line);
         }
         else if(obj instanceof Fish){
-            lineNumber++;
+            lineNumber--;
             OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Fish) obj).price());
-            orderlines.add(line);
+            orderlines.remove(line);
             System.out.println(line);
         }
         else if(obj instanceof Beef){
-            lineNumber++;
+            lineNumber--;
             OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Beef) obj).price());
-            orderlines.add(line);
+            orderlines.remove(line);
             System.out.println(line);
         }
         return false;
