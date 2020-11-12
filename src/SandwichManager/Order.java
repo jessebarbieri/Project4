@@ -53,10 +53,6 @@ public class Order implements Customizable {
         return false;
     }
 
-    @Override
-    public String toString() {
-        return orderlines.toString();
-    }
 
     @Override
     public boolean remove(Object obj) {
