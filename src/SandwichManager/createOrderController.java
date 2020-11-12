@@ -150,7 +150,9 @@ public class createOrderController implements Initializable {
 
     public void setAddIngred(){
         String currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
-        finalIngredList.getItems().add(currentIngred);
+        if (!finalIngredList.getItems().contains(currentIngred)){
+            finalIngredList.getItems().add(currentIngred);
+        }
 
     }
 
