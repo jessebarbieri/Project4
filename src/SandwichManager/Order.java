@@ -3,7 +3,7 @@ package SandwichManager;
 import java.util.ArrayList;
 
 /**
- * Creates an ArrayList of Orders with various OrderLines
+ * Creates an ArrayList of Orders with various OrderLines (Show Order)
  */
 public class Order implements Customizable {
     public static int lineNumber;
@@ -17,71 +17,40 @@ public class Order implements Customizable {
         lineNumber = 0;
     }
 
-    /**
-     * Adds sandwiches to the order -- INCOMPLETE
-     * @param obj any object of Sandwich
-     * @return res if added or not
-     */
 
+    /**
+     * Adding extras to the order
+     * @param obj
+     * @return
+     */
     @Override
     public boolean add(Object obj) {
-        System.out.println("Adding " + obj.toString());
-        boolean res = false;
-        if(obj instanceof Chicken){
-            lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Chicken) obj).price());
+        // adding sandwich order to array
+        if(obj instanceof Fish) {
+            System.out.println("Adding Fish Sandwich\n" + obj.toString());
+            Fish f = new Fish();
+            OrderLine line = new OrderLine(lineNumber++, f, f.price());
             orderlines.add(line);
-            System.out.println(line);
-            res = true;
-
-        }
-        else if(obj instanceof Fish){
-            Sandwich f = new Fish();
-            lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, f, f.price());
+        }else if(obj instanceof Chicken){
+            System.out.println("Adding Chicken Sandwich\n" + obj.toString());
+            Chicken c = new Chicken();
+            OrderLine line = new OrderLine(lineNumber++, c, c.price());
             orderlines.add(line);
-            System.out.println(line);
-            res = true;
-
-        }
-        else if(obj instanceof Beef) {
-            lineNumber++;
-            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Beef) obj).price());
+        }else if(obj instanceof Beef){
+            System.out.println("Adding Beef Sandwich\n" + obj.toString());
+            Beef b = new Beef();
+            OrderLine line = new OrderLine(lineNumber++, b, b.price());
             orderlines.add(line);
-            System.out.println(line);
-            res = true;
-
         }
-        return res;
+        System.out.println("Total Order: " + orderlines.toString());
+        return false;
     }
 
     @Override
     public boolean remove(Object obj) {
-        System.out.println("Removing " + obj.toString());
-        boolean res = false;
-        if(obj instanceof Chicken){
-            lineNumber--;
-            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Chicken) obj).price());
-            orderlines.remove(line);
-            System.out.println(line);
-            res = true;
-        }
-        else if(obj instanceof Fish){
-            lineNumber--;
-            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Fish) obj).price());
-            orderlines.remove(line);
-            System.out.println(line);
-            res = true;
-        }
-        else if(obj instanceof Beef){
-            lineNumber--;
-            OrderLine line = new OrderLine(lineNumber, (Sandwich) obj, ((Beef) obj).price());
-            orderlines.remove(line);
-            System.out.println(line);
-            res = true;
-        }
-        return res;
+        return false;
     }
+
 
 
 }

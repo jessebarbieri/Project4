@@ -1,7 +1,7 @@
 package SandwichManager;
 
 /**
- * Creates OrderLine with sandwich class(es)
+ * Creates OrderLine with sandwich class(es) (Add to Order)
  */
 public class OrderLine {
     private int lineNumber;

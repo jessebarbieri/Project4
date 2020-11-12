@@ -47,6 +47,7 @@ public class createOrderController implements Initializable {
 
     // This is just to display the options on the GUI
     String[] sandwichSelect = {"Fish", "Chicken", "Beef"};
+    ArrayList<Extra> extraList = new ArrayList<Extra>();
 
     @FXML
     Button showOrder;
@@ -96,6 +97,11 @@ public class createOrderController implements Initializable {
         }
     }
 
+    /**
+     * Initialize the stage
+     * @param url n/a
+     * @param resourceBundle n/a
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Program is starting\n");
@@ -127,16 +133,19 @@ public class createOrderController implements Initializable {
             case "Fish":
                 // create object
                 Sandwich f = new Fish();
+                f.extras = extraList;
                 currOrder.add(f);
                 break;
             case "Chicken":
                 // create object
                 Sandwich c = new Chicken();
+                c.extras = extraList;
                 currOrder.add(c);
                 break;
             case "Beef":
                 // create object
                 Sandwich b = new Beef();
+                b.extras = extraList;
                 currOrder.add(b);
                 break;
         }
@@ -144,17 +153,79 @@ public class createOrderController implements Initializable {
 
     public void setAddOrder(){
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
-        // Add to order button works based on our selection
-        //System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
     }
 
-    public void setAddIngred(){
+    public void setAddIngred() {
         String currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
 
-        if (!finalIngredList.getItems().contains(currentIngred)){
-            finalIngredList.getItems().add(currentIngred);
+        if (!finalIngredList.getItems().contains(currentIngred)) {
+            if(extraList.size() < 6){
+                // add
+                if(currentIngred.equals(Extra.American_Cheese.toString())){
+                    extraList.add(Extra.American_Cheese);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Cucumbers.toString())){
+                    extraList.add(Extra.Cucumbers);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Lettuce.toString())){
+                    extraList.add(Extra.Lettuce);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Mayo.toString())){
+                    extraList.add(Extra.Mayo);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Mustard.toString())){
+                    extraList.add(Extra.Mustard);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Olives.toString())){
+                    extraList.add(Extra.Olives);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Pickles.toString())){
+                    extraList.add(Extra.Pickles);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Red_Onion.toString())){
+                    extraList.add(Extra.Red_Onion);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Swiss_Cheese.toString())){
+                    extraList.add(Extra.Swiss_Cheese);
+                    finalIngredList.getItems().add(currentIngred);
+                }else if(currentIngred.equals(Extra.Tomato.toString())){
+                    extraList.add(Extra.Tomato);
+                    finalIngredList.getItems().add(currentIngred);
+                }
+            }else{
+                // can't add
+                System.out.println("List is full! It has a size of..." + extraList.size());
+            }
+
         }
 
+    }
+
+    public void setRemoveIngred(){
+        String currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
+        finalIngredList.getItems().remove(currentIngred);
+        // check which extra is there
+        if(currentIngred.equals(Extra.American_Cheese.toString())){
+            extraList.remove(Extra.American_Cheese);
+        }else if(currentIngred.equals(Extra.Cucumbers.toString())){
+            extraList.remove(Extra.Cucumbers);
+        }else if(currentIngred.equals(Extra.Lettuce.toString())){
+            extraList.remove(Extra.Lettuce);
+        }else if(currentIngred.equals(Extra.Mayo.toString())){
+            extraList.remove(Extra.Mayo);
+        }else if(currentIngred.equals(Extra.Mustard.toString())){
+            extraList.remove(Extra.Mustard);
+        }else if(currentIngred.equals(Extra.Olives.toString())){
+            extraList.remove(Extra.Olives);
+        }else if(currentIngred.equals(Extra.Pickles.toString())){
+            extraList.remove(Extra.Pickles);
+        }else if(currentIngred.equals(Extra.Red_Onion.toString())){
+            extraList.remove(Extra.Red_Onion);
+        }else if(currentIngred.equals(Extra.Swiss_Cheese.toString())){
+            extraList.remove(Extra.Swiss_Cheese);
+        }else if(currentIngred.equals(Extra.Tomato.toString())){
+            extraList.remove(Extra.Tomato);
+        }
     }
 
     public void setShowOrder(){
