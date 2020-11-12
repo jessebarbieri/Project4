@@ -1,5 +1,9 @@
 package SandwichManager;
 
+import javafx.beans.Observable;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 /**
@@ -47,6 +51,11 @@ public class Order implements Customizable {
         }
         System.out.println("Total Order: " + orderlines.toString());
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return orderlines.toString();
     }
 
     @Override

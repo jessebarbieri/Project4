@@ -72,6 +72,7 @@ public class createOrderController implements Initializable {
                         Extra.Tomato.toString());
     ObservableList<String> addedList = FXCollections.observableArrayList();
 
+
     /**
      * This void method sets the image that correlates to the proper selected sandwich
      */
@@ -135,18 +136,21 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
+                addedList.add(currOrder.toString());
                 break;
             case "Chicken":
                 // create object
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
+                addedList.add(currOrder.toString());
                 break;
             case "Beef":
                 // create object
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
+                addedList.add(currOrder.toString());
                 break;
         }
     }
@@ -228,20 +232,22 @@ public class createOrderController implements Initializable {
         }
     }
 
-    orderDetailController control2;
 
     public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetails.fxml"));
+            FXMLLoader loader =  new FXMLLoader(getClass().getResource("orderDetails.fxml"));
             Parent root = loader.load();
-            control2 = loader.getController();
+            orderDetailController control2 = loader.getController();
             secondaryStage.setScene(new Scene(root, 600,480));
             secondaryStage.setTitle("Order Details");
             secondaryStage.show();
+            control2.createOrderController(this);
+            control2.setDisplay(addedList);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
