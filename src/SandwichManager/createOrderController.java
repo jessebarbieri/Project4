@@ -69,6 +69,7 @@ public class createOrderController implements Initializable {
                         Extra.Cucumbers.toString(), Extra.Lettuce.toString(), Extra.Mayo.toString(),
                         Extra.Mustard.toString(), Extra.Red_Onion.toString(), Extra.Swiss_Cheese.toString(),
                         Extra.Tomato.toString());
+    ObservableList<String> addedList = FXCollections.observableArrayList();
 
     /**
      * This void method sets the image that correlates to the proper selected sandwich
@@ -149,8 +150,8 @@ public class createOrderController implements Initializable {
 
     public void setAddIngred(){
         String currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
-        System.out.println(currentIngred);
         finalIngredList.getItems().add(currentIngred);
+
     }
 
     public void setShowOrder(){
