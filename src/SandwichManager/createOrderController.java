@@ -20,8 +20,8 @@ import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.security.spec.ECField;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class createOrderController implements Initializable {
 
@@ -61,7 +61,11 @@ public class createOrderController implements Initializable {
     ObservableList<String> basicChicken = FXCollections.observableArrayList("Fried Chicken", "Spicy Sauce", "Pickles");
     ObservableList<String> basicFish = FXCollections.observableArrayList("Grilled Snapper", "Cilantro", "Lime");
     ObservableList<String> basicBeef = FXCollections.observableArrayList("Roast Beef", "Provolone Cheese", "Mustard");
-
+    ObservableList<String> ingredientList = FXCollections.observableArrayList
+                (Extra.Olives.toString(), Extra.Pickles.toString(), Extra.American_Cheese.toString(),
+                        Extra.Cucumbers.toString(), Extra.Lettuce.toString(), Extra.Mayo.toString(),
+                        Extra.Mustard.toString(), Extra.Red_Onion.toString(), Extra.Swiss_Cheese.toString(),
+                        Extra.Tomato.toString());
 
     /**
      * This void method sets the image that correlates to the proper selected sandwich
@@ -98,6 +102,7 @@ public class createOrderController implements Initializable {
         viewPrice.setText("$8.99");
         sandwichType.getSelectionModel().select("Chicken");
         basicList.setDisable(true);
+        ingredList.setItems(ingredientList);
     }
 
     /**

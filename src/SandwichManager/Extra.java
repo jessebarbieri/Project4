@@ -7,7 +7,6 @@ enum Extra{
     Red_Onion,
     Mayo,
     Mustard,
-    Vinegar_Dressing,
     Pickles,
     Cucumbers,
     American_Cheese,
