@@ -1,6 +1,6 @@
 package SandwichManager;
 
-public class Beef extends Sandwich{
+public class Beef extends Sandwich {
 
     @Override
     public double price() {
