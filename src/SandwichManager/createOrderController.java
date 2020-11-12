@@ -136,21 +136,21 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
-                addedList.add(currOrder.toString());
+                //addedList.add(currOrder.toString());
                 break;
             case "Chicken":
                 // create object
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
-                addedList.add(currOrder.toString());
+                //addedList.add(currOrder.toString());
                 break;
             case "Beef":
                 // create object
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
-                addedList.add(currOrder.toString());
+                //addedList.add(currOrder.toString());
                 break;
         }
     }
