@@ -18,7 +18,7 @@
       <Label layoutX="319.0" layoutY="232.0" text="All Ingredients added" />
       <Button layoutX="198.0" layoutY="377.0" mnemonicParsing="false" onAction="#setAddIngred" prefHeight="27.0" prefWidth="85.0" text="Add &gt;" />
       <Button layoutX="198.0" layoutY="423.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="&lt; Remove" />
-      <ListView layoutX="309.0" layoutY="255.0" prefHeight="200.0" prefWidth="150.0" />
+      <ListView fx:id="finalIngredList" layoutX="309.0" layoutY="255.0" prefHeight="200.0" prefWidth="150.0" />
       <Button fx:id="addOrder" layoutX="478.0" layoutY="377.0" mnemonicParsing="false" onAction="#setAddOrder" text="Add to Order" />
       <Button fx:id="showOrder" layoutX="474.0" layoutY="423.0" mnemonicParsing="false" onAction="#setShowOrder" prefHeight="27.0" prefWidth="106.0" text="Show Order" />
       <ComboBox fx:id="sandwichType" layoutX="26.0" layoutY="48.0" onAction="#getSandwichType" prefHeight="27.0" prefWidth="150.0" />
