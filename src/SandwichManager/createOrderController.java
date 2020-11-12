@@ -20,6 +20,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.security.spec.ECField;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class createOrderController implements Initializable {
@@ -34,6 +35,9 @@ public class createOrderController implements Initializable {
 
     @FXML
     ListView basicList;
+
+    @FXML
+    ListView ingredList;
 
     @FXML
     Label viewPrice;
