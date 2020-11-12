@@ -40,6 +40,9 @@ public class createOrderController implements Initializable {
     ListView ingredList;
 
     @FXML
+    ListView finalIngredList;
+
+    @FXML
     Label viewPrice;
 
     // This is just to display the options on the GUI
@@ -142,6 +145,12 @@ public class createOrderController implements Initializable {
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
         // Add to order button works based on our selection
         //System.out.println("Sandwich Added: " + sandwichType.getSelectionModel().getSelectedItem());
+    }
+
+    public void setAddIngred(){
+        String currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
+        System.out.println(currentIngred);
+        finalIngredList.getItems().add(currentIngred);
     }
 
     public void setShowOrder(){
