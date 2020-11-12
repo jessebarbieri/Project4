@@ -54,11 +54,6 @@ public class Order implements Customizable {
     }
 
     @Override
-    public String toString() {
-        return orderlines.toString();
-    }
-
-    @Override
     public boolean remove(Object obj) {
         return false;
     }
