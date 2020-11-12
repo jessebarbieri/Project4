@@ -49,10 +49,17 @@ public class Order implements Customizable {
             OrderLine line = new OrderLine(lineNumber++, b, b.price());
             orderlines.add(line);
         }
-        System.out.println("Total Order: " + orderlines.toString());
-        return false;
+        return true;
     }
 
+    public String[] OrdertoString(){
+        String[] orders = new String[orderlines.size()];
+        for(int i = 0; i < orderlines.size(); i++){
+            orders[i] = orderlines.get(i).toString();
+            System.out.println(orders[i]);
+        }
+        return orders;
+    }
 
     @Override
     public boolean remove(Object obj) {
