@@ -29,8 +29,10 @@ public class Order implements Customizable {
         if(obj instanceof Fish) {
             System.out.println("Adding Fish Sandwich\n" + obj.toString());
             Fish f = new Fish();
+            f.extras = ((Fish) obj).extras;
             OrderLine line = new OrderLine(lineNumber++, f, f.price());
             orderlines.add(line);
+            System.out.println(f.extras);
         }else if(obj instanceof Chicken){
             System.out.println("Adding Chicken Sandwich\n" + obj.toString());
             Chicken c = new Chicken();
