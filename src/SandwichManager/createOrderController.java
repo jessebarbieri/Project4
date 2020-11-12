@@ -228,15 +228,18 @@ public class createOrderController implements Initializable {
         }
     }
 
+    orderDetailController control2;
+
     public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("orderDetails.fxml"));
             Parent root = loader.load();
-            orderDetailController control2 = loader.getController();
+            control2 = loader.getController();
             secondaryStage.setScene(new Scene(root, 600,480));
             secondaryStage.setTitle("Order Details");
             secondaryStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
