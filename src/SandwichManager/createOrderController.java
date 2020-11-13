@@ -143,6 +143,7 @@ public class createOrderController implements Initializable {
                 addedList.add(order.toString());
                 finalIngredList.getItems().clear();
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
             case "Chicken":
                 // create object
@@ -153,6 +154,7 @@ public class createOrderController implements Initializable {
                 addedList.add(order.toString());
                 finalIngredList.getItems().clear();
                 addedList.add("-  " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
             case "Beef":
                 // create object
@@ -163,6 +165,7 @@ public class createOrderController implements Initializable {
                 addedList.add(order.toString());
                 finalIngredList.getItems().clear();
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
         }
     }
