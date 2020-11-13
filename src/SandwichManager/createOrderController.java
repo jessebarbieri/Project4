@@ -141,6 +141,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(f);
                 order = new OrderLine(linenumber, f, f.price());
                 addedList.add(order.toString());
+                finalIngredList.getItems().clear();
+                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 break;
             case "Chicken":
                 // create object
@@ -149,6 +151,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(c);
                 order = new OrderLine(linenumber, c, c.price());
                 addedList.add(order.toString());
+                finalIngredList.getItems().clear();
+                addedList.add("-  " + extraList.toString().replace("[", "").replace("]", ""));
                 break;
             case "Beef":
                 // create object
@@ -157,6 +161,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(b);
                 order = new OrderLine(linenumber, b, b.price());
                 addedList.add(order.toString());
+                finalIngredList.getItems().clear();
+                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 break;
         }
     }
@@ -252,6 +258,7 @@ public class createOrderController implements Initializable {
             secondaryStage.show();
             control2.createOrderController(this);
             control2.setDisplay(addedList);
+            //control2.removeOrder();
             Main.mainStage.close();
 
 

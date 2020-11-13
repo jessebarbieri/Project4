@@ -27,6 +27,9 @@ public class orderDetailController {
     @FXML
     Button back;
 
+    @FXML
+    Button removeButton;
+
     public void createOrderController(createOrderController controller){
         controller = this.controller;
     }
@@ -38,6 +41,14 @@ public class orderDetailController {
     public void setBack(){
         Main.mainStage.show();
         createOrderController.secondStage.close();
+    }
+
+    // purely visual, does not actually remove the order from the orderline
+    public void removeOrder(){
+        int i = display.getSelectionModel().getSelectedIndex();
+        display.getItems().remove(i);
+        display.getItems().remove(i++);
+
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){

@@ -31,15 +31,15 @@ public class Order implements Customizable {
     public boolean add(Object obj) {
         // adding sandwich order to array
         if(obj instanceof Fish) {
-            System.out.println("Adding Fish Sandwich\n" + obj.toString());
+            //System.out.println("Adding Fish Sandwich\n" + obj.toString());
             Fish f = new Fish();
             f.extras = ((Fish) obj).extras;
         }else if(obj instanceof Chicken){
-            System.out.println("Adding Chicken Sandwich\n" + obj.toString());
+            //System.out.println("Adding Chicken Sandwich\n" + obj.toString());
             Chicken c = new Chicken();
             c.extras = ((Chicken) obj).extras;
         }else if(obj instanceof Beef){
-            System.out.println("Adding Beef Sandwich\n" + obj.toString());
+            //System.out.println("Adding Beef Sandwich\n" + obj.toString());
             Beef b = new Beef();
             b.extras = ((Beef) obj).extras;
         }
