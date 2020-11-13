@@ -152,7 +152,9 @@ public class createOrderController implements Initializable {
         }
 
         String[] orders = currOrder.OrdertoString();
-
+        for(int i=0; i < orders.length; i++){
+            addedList.add(orders[i]);
+        }
 
     }
 
