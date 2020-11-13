@@ -124,6 +124,9 @@ public class createOrderController implements Initializable {
         setImageSelect();
     }
 
+    OrderLine order = null;
+    int linenumber;
+
     /**
      * add order selected to the array
      *
@@ -136,26 +139,26 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
+                order = new OrderLine(linenumber, f, f.price());
+                addedList.add(order.toString());
                 break;
             case "Chicken":
                 // create object
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
+                order = new OrderLine(linenumber, c, c.price());
+                addedList.add(order.toString());
                 break;
             case "Beef":
                 // create object
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
+                order = new OrderLine(linenumber, b, b.price());
+                addedList.add(order.toString());
                 break;
         }
-
-        String[] orders = currOrder.OrdertoString();
-        for(int i=0; i < orders.length; i++){
-            addedList.add(orders[i]);
-        }
-
     }
 
     public void setAddOrder(){
@@ -235,10 +238,12 @@ public class createOrderController implements Initializable {
         }
     }
 
+    public static Stage secondStage = new Stage();
 
     public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
+            secondStage = secondaryStage;
             FXMLLoader loader =  new FXMLLoader(getClass().getResource("orderDetails.fxml"));
             Parent root = loader.load();
             orderDetailController control2 = loader.getController();
@@ -247,6 +252,8 @@ public class createOrderController implements Initializable {
             secondaryStage.show();
             control2.createOrderController(this);
             control2.setDisplay(addedList);
+            Main.mainStage.close();
+
 
         } catch (IOException e) {
             e.printStackTrace();

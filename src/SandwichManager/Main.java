@@ -28,8 +28,12 @@ public class Main extends Application{
      * @param primaryStage Stage for the GUI
      * @throws Exception in case this doesn't work
      */
+
+    public static Stage mainStage = new Stage();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        mainStage = primaryStage;
         Parent root = FXMLLoader.load((getClass().getResource("/SandwichManager/createOrder.fxml")));
         primaryStage.setTitle("Sandwich Manager");
         primaryStage.setScene(new Scene(root, 600, 480));

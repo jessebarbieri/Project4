@@ -34,32 +34,18 @@ public class Order implements Customizable {
             System.out.println("Adding Fish Sandwich\n" + obj.toString());
             Fish f = new Fish();
             f.extras = ((Fish) obj).extras;
-            OrderLine line = new OrderLine(lineNumber++, f, f.price());
-            orderlines.add(line);
         }else if(obj instanceof Chicken){
             System.out.println("Adding Chicken Sandwich\n" + obj.toString());
             Chicken c = new Chicken();
             c.extras = ((Chicken) obj).extras;
-            OrderLine line = new OrderLine(lineNumber++, c, c.price());
-            orderlines.add(line);
         }else if(obj instanceof Beef){
             System.out.println("Adding Beef Sandwich\n" + obj.toString());
             Beef b = new Beef();
             b.extras = ((Beef) obj).extras;
-            OrderLine line = new OrderLine(lineNumber++, b, b.price());
-            orderlines.add(line);
         }
         return true;
     }
 
-    public String[] OrdertoString(){
-        String[] orders = new String[orderlines.size()];
-        for(int i = 0; i < orderlines.size(); i++){
-            orders[i] = orderlines.get(i).toString();
-            System.out.println(orders[i]);
-        }
-        return orders;
-    }
 
     @Override
     public boolean remove(Object obj) {

@@ -24,12 +24,20 @@ public class orderDetailController {
     private ListView display;
     private createOrderController controller;
 
+    @FXML
+    Button back;
+
     public void createOrderController(createOrderController controller){
         controller = this.controller;
     }
 
     public void setDisplay(ObservableList list){
         display.setItems(list);
+    }
+
+    public void setBack(){
+        Main.mainStage.show();
+        createOrderController.secondStage.close();
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){
