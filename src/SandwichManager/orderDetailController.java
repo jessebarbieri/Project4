@@ -45,10 +45,9 @@ public class orderDetailController {
 
     // purely visual, does not actually remove the order from the orderline
     public void removeOrder(){
-        int i = display.getSelectionModel().getSelectedIndex();
-        display.getItems().remove(i);
-        display.getItems().remove(i++);
-
+        int linenumber = display.getSelectionModel().getSelectedIndex();
+        display.getItems().remove(linenumber);
+        display.getItems().remove(linenumber++);
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){

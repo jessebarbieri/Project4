@@ -124,14 +124,14 @@ public class createOrderController implements Initializable {
         setImageSelect();
     }
 
-    OrderLine order = null;
-    int linenumber;
-
     /**
      * add order selected to the array
      *
      * @param sandwich string selected from GUI
      */
+
+    int linenumber;
+
     public void addOrder (String sandwich) {
         switch (sandwich) {
             case "Fish":
@@ -139,8 +139,7 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
-                order = new OrderLine(linenumber, f, f.price());
-                addedList.add(order.toString());
+                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
@@ -150,8 +149,7 @@ public class createOrderController implements Initializable {
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
-                order = new OrderLine(linenumber, c, c.price());
-                addedList.add(order.toString());
+                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
                 addedList.add("-  " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
@@ -161,8 +159,7 @@ public class createOrderController implements Initializable {
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
-                order = new OrderLine(linenumber, b, b.price());
-                addedList.add(order.toString());
+                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
@@ -220,6 +217,7 @@ public class createOrderController implements Initializable {
 
     }
 
+
     public void setRemoveIngred(){
         String currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
         finalIngredList.getItems().remove(currentIngred);
@@ -261,7 +259,6 @@ public class createOrderController implements Initializable {
             secondaryStage.show();
             control2.createOrderController(this);
             control2.setDisplay(addedList);
-            //control2.removeOrder();
             Main.mainStage.close();
 
 
