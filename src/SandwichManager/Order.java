@@ -61,6 +61,7 @@ public class Order implements Customizable {
 
     @Override
     public boolean remove(Object obj) {
+        System.out.println("Remove From orderlines arraylist");
         return false;
     }
 
