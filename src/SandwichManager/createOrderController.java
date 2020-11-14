@@ -25,7 +25,7 @@ import java.util.List;
 
 public class createOrderController implements Initializable {
 
-    Order currOrder = new Order();
+    public Order currOrder = new Order();
 
     @FXML
     ComboBox<String> sandwichType;
@@ -139,9 +139,8 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
-                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
-                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
             case "Chicken":
@@ -149,9 +148,8 @@ public class createOrderController implements Initializable {
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
-                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
-                addedList.add("-  " + extraList.toString().replace("[", "").replace("]", ""));
+                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
             case "Beef":
@@ -159,9 +157,8 @@ public class createOrderController implements Initializable {
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
-                addedList.add(currOrder.getLine(linenumber++));
                 finalIngredList.getItems().clear();
-                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
         }
@@ -245,6 +242,7 @@ public class createOrderController implements Initializable {
         }
     }
 
+
     public static Stage secondStage = new Stage();
 
     public void setShowOrder(){
@@ -259,6 +257,8 @@ public class createOrderController implements Initializable {
             secondaryStage.show();
             control2.createOrderController(this);
             control2.setDisplay(addedList);
+            //control2.sendOrder(currOrder, addedList);
+
             Main.mainStage.close();
 
 

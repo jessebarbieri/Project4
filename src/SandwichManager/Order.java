@@ -61,6 +61,11 @@ public class Order implements Customizable {
 
     @Override
     public boolean remove(Object obj) {
+        if(obj instanceof Fish){
+            Sandwich f = new Fish();
+            orderlines.get(lineNumber);
+            System.out.println(lineNumber);
+        }
         return false;
     }
 
