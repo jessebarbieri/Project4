@@ -165,11 +165,16 @@ public class createOrderController implements Initializable {
     }
 
     public void setAddOrder(){
-        addOrder(sandwichType.getSelectionModel().getSelectedItem());
+            addOrder(sandwichType.getSelectionModel().getSelectedItem());
     }
 
     public void setAddIngred() {
-        String currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
+        String currentIngred = "";
+        try {
+            currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
+        }catch (NullPointerException e){
+            System.out.println("Please pick an extra");
+        }
 
         if (!finalIngredList.getItems().contains(currentIngred)) {
             if(extraList.size() < 6){

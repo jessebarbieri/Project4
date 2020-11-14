@@ -64,20 +64,15 @@ public class orderDetailController {
         if(type.equals("Fish")){
             Sandwich f = new Fish();
             OrderLine oLine = new OrderLine(linenumber, f, price);
-            //controller.currOrder.remove();
-            System.out.println(oLine.toString());
+
         }
         else if(type.equals("Chicken")){
             Sandwich c = new Fish();
             OrderLine oLine = new OrderLine(linenumber, c, price);
-            controller.currOrder.remove(c);
-            System.out.println(oLine.toString());
         }
         else if(type.equals("Beef")){
             Sandwich b = new Beef();
             OrderLine oLine = new OrderLine(linenumber, b, price);
-            controller.currOrder.remove(b);
-            System.out.println(oLine.toString());
         }
 
         System.out.println(linenumber + " " + type + " " + price);
