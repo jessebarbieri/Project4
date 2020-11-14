@@ -44,11 +44,46 @@ public class orderDetailController {
         createOrderController.secondStage.close();
     }
 
+    /*
+    public Order sendOrder(Order order, ObservableList list){
+        System.out.println(list);
+        return order;
+    }
+     */
+
     // purely visual, does not actually remove the order from the orderline
     public void removeOrder(){
-        int linenumber = display.getSelectionModel().getSelectedIndex();
-        display.getItems().remove(linenumber);
-        display.getItems().remove(linenumber++);
+        int linenumber;
+        double price;
+        int line = display.getSelectionModel().getSelectedIndex();
+        String removeString = display.getSelectionModel().getSelectedItem().toString();
+        String[] parseRemove = removeString.split("\\s");
+        linenumber = Integer.parseInt(parseRemove[0]);
+        String type = parseRemove[3];
+        price = Double.parseDouble(parseRemove[5]);
+        if(type.equals("Fish")){
+            Sandwich f = new Fish();
+            OrderLine oLine = new OrderLine(linenumber, f, price);
+            //controller.currOrder.remove();
+            System.out.println(oLine.toString());
+        }
+        else if(type.equals("Chicken")){
+            Sandwich c = new Fish();
+            OrderLine oLine = new OrderLine(linenumber, c, price);
+            controller.currOrder.remove(c);
+            System.out.println(oLine.toString());
+        }
+        else if(type.equals("Beef")){
+            Sandwich b = new Beef();
+            OrderLine oLine = new OrderLine(linenumber, b, price);
+            controller.currOrder.remove(b);
+            System.out.println(oLine.toString());
+        }
+
+        System.out.println(linenumber + " " + type + " " + price);
+
+        display.getItems().remove(line);
+        display.refresh();
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){
