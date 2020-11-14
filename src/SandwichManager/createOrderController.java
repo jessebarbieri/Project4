@@ -70,7 +70,7 @@ public class createOrderController implements Initializable {
                         Extra.Cucumbers.toString(), Extra.Lettuce.toString(), Extra.Mayo.toString(),
                         Extra.Mustard.toString(), Extra.Red_Onion.toString(), Extra.Swiss_Cheese.toString(),
                         Extra.Tomato.toString());
-    ObservableList<String> addedList = FXCollections.observableArrayList();
+    ObservableList<String> addedList;
 
 
     /**
@@ -151,9 +151,7 @@ public class createOrderController implements Initializable {
                 break;
         }
 
-        String[] orders = currOrder.OrdertoString();
-
-
+        addedList = FXCollections.observableArrayList(currOrder.OrdertoString());
     }
 
     public void setAddOrder(){

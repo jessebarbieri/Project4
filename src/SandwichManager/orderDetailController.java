@@ -24,6 +24,9 @@ public class orderDetailController {
     private ListView display;
     private createOrderController controller;
 
+    @FXML
+    Button backButton;
+
     public void createOrderController(createOrderController controller){
         controller = this.controller;
     }
@@ -34,6 +37,11 @@ public class orderDetailController {
 
     public void initialize(URL url, ResourceBundle resourceBundle){
 
+    }
+
+    public void setBackButton(){
+        System.out.println("Send to Order Creation page");
+        // close this page and open the first one
     }
 
 

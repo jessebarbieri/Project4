@@ -52,12 +52,10 @@ public class Order implements Customizable {
         return true;
     }
 
-    public String[] OrdertoString(){
-        String[] orders = new String[orderlines.size()];
-        for(int i = 0; i < orderlines.size(); i++){
-            orders[i] = orderlines.get(i).toString();
-            System.out.println(orders[i]);
-        }
+    public ArrayList<String> OrdertoString(){
+        ArrayList<String> orders = new ArrayList<>();
+        orders = (ArrayList<String>)orderlines.clone();
+
         return orders;
     }
 
