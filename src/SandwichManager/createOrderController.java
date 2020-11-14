@@ -66,11 +66,11 @@ public class createOrderController implements Initializable {
     ObservableList<String> basicFish = FXCollections.observableArrayList("Grilled Snapper", "Cilantro", "Lime");
     ObservableList<String> basicBeef = FXCollections.observableArrayList("Roast Beef", "Provolone Cheese", "Mustard");
     ObservableList<String> ingredientList = FXCollections.observableArrayList
-                (Extra.Olives.toString(), Extra.Pickles.toString(), Extra.American_Cheese.toString(),
-                        Extra.Cucumbers.toString(), Extra.Lettuce.toString(), Extra.Mayo.toString(),
-                        Extra.Mustard.toString(), Extra.Red_Onion.toString(), Extra.Swiss_Cheese.toString(),
-                        Extra.Tomato.toString());
-    ObservableList<String> addedList;
+            (Extra.Olives.toString(), Extra.Pickles.toString(), Extra.American_Cheese.toString(),
+                    Extra.Cucumbers.toString(), Extra.Lettuce.toString(), Extra.Mayo.toString(),
+                    Extra.Mustard.toString(), Extra.Red_Onion.toString(), Extra.Swiss_Cheese.toString(),
+                    Extra.Tomato.toString());
+    ObservableList<String> addedList = FXCollections.observableArrayList();
 
 
     /**
@@ -140,11 +140,7 @@ public class createOrderController implements Initializable {
                 f.extras = extraList;
                 currOrder.add(f);
                 addedList.add(currOrder.getLine(linenumber++));
-
-                System.out.println("FINAL INGRED");
                 finalIngredList.getItems().clear();
-                System.out.println("FINAL INGRED");
-
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
