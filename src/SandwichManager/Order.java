@@ -52,7 +52,6 @@ public class Order implements Customizable {
         return true;
     }
 
-
     public String getLine(int lineNumber){
         System.out.println(lineNumber);
         String line = orderlines.get(lineNumber).toString();

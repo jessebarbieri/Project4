@@ -140,7 +140,11 @@ public class createOrderController implements Initializable {
                 f.extras = extraList;
                 currOrder.add(f);
                 addedList.add(currOrder.getLine(linenumber++));
+
+                System.out.println("FINAL INGRED");
                 finalIngredList.getItems().clear();
+                System.out.println("FINAL INGRED");
+
                 addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
