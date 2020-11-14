@@ -221,7 +221,13 @@ public class createOrderController implements Initializable {
 
 
     public void setRemoveIngred(){
-        String currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
+        String currentIngred = "";
+
+        try {
+            currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
+        }catch (NullPointerException e){
+            System.out.println("Please select which item to remove");
+        }
         finalIngredList.getItems().remove(currentIngred);
         // check which extra is there
         if(currentIngred.equals(Extra.American_Cheese.toString())){
