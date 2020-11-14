@@ -129,6 +129,9 @@ public class createOrderController implements Initializable {
      *
      * @param sandwich string selected from GUI
      */
+
+    int linenumber;
+
     public void addOrder (String sandwich) {
         switch (sandwich) {
             case "Fish":
@@ -136,22 +139,32 @@ public class createOrderController implements Initializable {
                 Sandwich f = new Fish();
                 f.extras = extraList;
                 currOrder.add(f);
+                addedList.add(currOrder.getLine(linenumber++));
+                finalIngredList.getItems().clear();
+                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
             case "Chicken":
                 // create object
                 Sandwich c = new Chicken();
                 c.extras = extraList;
                 currOrder.add(c);
+                addedList.add(currOrder.getLine(linenumber++));
+                finalIngredList.getItems().clear();
+                addedList.add("-  " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
             case "Beef":
                 // create object
                 Sandwich b = new Beef();
                 b.extras = extraList;
                 currOrder.add(b);
+                addedList.add(currOrder.getLine(linenumber++));
+                finalIngredList.getItems().clear();
+                addedList.add("- " + extraList.toString().replace("[", "").replace("]", ""));
+                extraList.clear();
                 break;
         }
-
-        addedList = FXCollections.observableArrayList(currOrder.OrdertoString());
     }
 
     public void setAddOrder(){
@@ -204,6 +217,7 @@ public class createOrderController implements Initializable {
 
     }
 
+
     public void setRemoveIngred(){
         String currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
         finalIngredList.getItems().remove(currentIngred);
@@ -231,10 +245,12 @@ public class createOrderController implements Initializable {
         }
     }
 
+    public static Stage secondStage = new Stage();
 
     public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
+            secondStage = secondaryStage;
             FXMLLoader loader =  new FXMLLoader(getClass().getResource("orderDetails.fxml"));
             Parent root = loader.load();
             orderDetailController control2 = loader.getController();
@@ -243,6 +259,8 @@ public class createOrderController implements Initializable {
             secondaryStage.show();
             control2.createOrderController(this);
             control2.setDisplay(addedList);
+            Main.mainStage.close();
+
 
         } catch (IOException e) {
             e.printStackTrace();

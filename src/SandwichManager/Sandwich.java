@@ -8,6 +8,7 @@ public abstract class Sandwich implements Customizable {
     protected ArrayList<Extra> extras;
     public abstract double price();
 
+
     public Sandwich(){
         extras = new ArrayList<>();
     }
@@ -16,6 +17,8 @@ public abstract class Sandwich implements Customizable {
      * To string method that returns sandwich info
      * @return a string with extra info
      */
+
+    @Override
     public String toString() {
         return extras.toString();
     }
