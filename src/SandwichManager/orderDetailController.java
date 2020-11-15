@@ -168,6 +168,8 @@ public class orderDetailController {
         display.getItems().clear();
         currOrder1.clear();
         displaySetClear();
+        price.setText("0.00");
+
     }
 
     public void setExport(){
@@ -185,7 +187,6 @@ public class orderDetailController {
             writer.close();
 
             setClear();
-            price.setText("0.00");
 
             displayCorrectFile();
             //System.out.println("File created to output accounts by Date Opened\n");
