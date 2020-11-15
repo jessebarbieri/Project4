@@ -27,6 +27,10 @@ public class createOrderController implements Initializable {
 
     public Order currOrder = new Order();
 
+    public createOrderController() {
+        this.currOrder = currOrder;
+    }
+
     @FXML
     ComboBox<String> sandwichType;
 
@@ -141,6 +145,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(f);
                 finalIngredList.getItems().clear();
                 addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+
+                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
             case "Chicken":
@@ -150,6 +156,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(c);
                 finalIngredList.getItems().clear();
                 addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+
+                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
             case "Beef":
@@ -159,6 +167,8 @@ public class createOrderController implements Initializable {
                 currOrder.add(b);
                 finalIngredList.getItems().clear();
                 addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+
+                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
         }
@@ -267,7 +277,7 @@ public class createOrderController implements Initializable {
             secondaryStage.setTitle("Order Details");
             secondaryStage.show();
             control2.createOrderController(this);
-            control2.setDisplay(addedList);
+            control2.setDisplay(addedList, currOrder);
             //control2.sendOrder(currOrder, addedList);
 
             Main.mainStage.close();

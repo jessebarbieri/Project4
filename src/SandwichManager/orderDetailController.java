@@ -16,10 +16,12 @@ import javafx.scene.control.Button;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class orderDetailController {
+    Order currOrder1;
     @FXML
     private ListView display;
     private createOrderController controller;
@@ -35,8 +37,9 @@ public class orderDetailController {
         controller = this.controller;
     }
 
-    public void setDisplay(ObservableList list){
+    public void setDisplay(ObservableList list, Order currOrder){
         display.setItems(list);
+        currOrder1 = currOrder;
     }
 
     public void setBack(){
@@ -44,41 +47,29 @@ public class orderDetailController {
         createOrderController.secondStage.close();
     }
 
-    /*
-    public Order sendOrder(Order order, ObservableList list){
-        System.out.println(list);
-        return order;
-    }
-     */
 
     // purely visual, does not actually remove the order from the orderline
     public void removeOrder(){
-        int linenumber;
-        double price;
-        int line = display.getSelectionModel().getSelectedIndex();
-        String removeString = display.getSelectionModel().getSelectedItem().toString();
-        String[] parseRemove = removeString.split("\\s");
-        linenumber = Integer.parseInt(parseRemove[0]);
-        String type = parseRemove[3];
-        price = Double.parseDouble(parseRemove[5]);
-        if(type.equals("Fish")){
-            Sandwich f = new Fish();
-            OrderLine oLine = new OrderLine(linenumber, f, price);
+        try {
+            String removeString = display.getSelectionModel().getSelectedItem().toString();
+            System.out.println(removeString);
 
-        }
-        else if(type.equals("Chicken")){
-            Sandwich c = new Fish();
-            OrderLine oLine = new OrderLine(linenumber, c, price);
-        }
-        else if(type.equals("Beef")){
-            Sandwich b = new Beef();
-            OrderLine oLine = new OrderLine(linenumber, b, price);
-        }
+            // split up into parts
+            String[] parseRemove = removeString.split("\\s");
+            int linenumber = Integer.parseInt(parseRemove[0]);
+            String type = parseRemove[3];
+            double price = Double.parseDouble(parseRemove[5]);
 
-        System.out.println(linenumber + " " + type + " " + price);
-
-        display.getItems().remove(line);
-        display.refresh();
+            boolean res = currOrder1.remove(linenumber);
+            display.getItems().remove(removeString);
+            if (res) {
+                System.out.println("Successfully Removed");
+            } else {
+                System.out.println("Item not removed");
+            }
+        }  catch(NullPointerException e){
+            System.out.println("Select an item to remove");
+        }
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){
