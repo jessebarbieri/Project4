@@ -370,7 +370,7 @@ public class createOrderController implements Initializable {
             control2.setDisplay(addedList, currOrder, extraList);
             //control2.sendOrder(currOrder, addedList);
 
-            Main.mainStage.close();
+            //Main.mainStage.close();
 
 
         } catch (IOException e) {
