@@ -87,6 +87,13 @@ public class Order implements Customizable {
         return true;
     }
 
+    public void clear(){
+        orderlines.clear();
+        //System.out.println("Orderlines size: " + orderlines.size());
+        orderlines = new ArrayList<>(10);
+        lineNumber = 0;
+    }
+
     /**
      * Add same item again
      * @param ln where it is

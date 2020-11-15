@@ -1,6 +1,5 @@
 --Printing Order --
-1 Sandwich Type: Chicken Price: 10.98 Extras: Pickles
-2 Sandwich Type: Fish Price: 16.97 Extras: Mustard, Mayo
-3 Sandwich Type: Fish Price: 16.97 Extras: Mustard, Mayo
-Price: 44.92
+1 Sandwich Type: Fish Price: 16.97 Extras: Lettuce, American_Cheese
+2 Sandwich Type: Fish Price: 16.97 Extras: Lettuce, American_Cheese
+Price: $33.94
 --end of printing--
