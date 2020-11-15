@@ -36,7 +36,8 @@ public class orderDetailController {
 
     ArrayList<Extra> extraList1;
 
-
+    @FXML
+    Button clear;
 
     @FXML
     Button export;
@@ -163,6 +164,11 @@ public class orderDetailController {
         // close this page and open the first one
     }
 
+    public void setClear(){
+        display.getItems().clear();
+        currOrder1.clear();
+        displaySetClear();
+    }
 
     public void setExport(){
         try {
@@ -174,9 +180,13 @@ public class orderDetailController {
             for (String s : resArr) {
                 writer.println(s);
             }
-            writer.println("Price: " + price.getText());
+            writer.println("Price: $" + price.getText());
             writer.println("--end of printing--");
             writer.close();
+
+            setClear();
+            price.setText("0.00");
+
             displayCorrectFile();
             //System.out.println("File created to output accounts by Date Opened\n");
         } catch (IOException e) {
@@ -213,6 +223,13 @@ public class orderDetailController {
         Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
         errorAlert.setHeaderText("Success!");
         errorAlert.setContentText("Order information has been exported!");
+        errorAlert.showAndWait();
+    }
+
+    public static void displaySetClear(){
+        Alert errorAlert = new Alert(Alert.AlertType.WARNING);
+        errorAlert.setHeaderText("CLEAR DATA?");
+        errorAlert.setContentText("You are about to clear the entire data!");
         errorAlert.showAndWait();
     }
 
