@@ -8,10 +8,10 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SandwichManager.orderDetailController">
    <children>
       <ListView fx:id="display" layoutX="28.0" layoutY="23.0" prefHeight="279.0" prefWidth="541.0" />
-      <Button layoutX="28.0" layoutY="311.0" mnemonicParsing="false" text="(+) Same order" />
+      <Button fx:id="addButton" layoutX="28.0" layoutY="311.0" mnemonicParsing="false" onAction="#addOrder" text="(+) Same order" />
       <Button fx:id="removeButton" layoutX="28.0" layoutY="347.0" mnemonicParsing="false" onAction="#removeOrder" text="(-) Same order" />
-      <Button layoutX="481.0" layoutY="347.0" mnemonicParsing="false" text="Export Order" />
-      <TextField layoutX="408.0" layoutY="311.0" />
+      <Button fx:id="export" layoutX="481.0" layoutY="347.0" mnemonicParsing="false" onAction="#setExport" text="Export Order" />
+      <TextField fx:id="price" layoutX="408.0" layoutY="311.0" />
       <Button fx:id="back" layoutX="157.0" layoutY="311.0" mnemonicParsing="false" onAction="#setBack" text="Back" />
    </children>
 </AnchorPane>

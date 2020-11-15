@@ -1,6 +1,16 @@
 package SandwichManager;
 
+import java.util.ArrayList;
+
 public class Beef extends Sandwich {
+
+    public Beef(ArrayList<Extra> extras){
+        for(Extra e : extras){
+            this.extras.add(e);
+        }
+        //this.extras = new ArrayList<>(6);
+        //this.extras = extras;
+    }
 
     @Override
     public double price() {

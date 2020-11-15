@@ -1,0 +1,7 @@
+--Printing Order --
+1 Sandwich Type: Chicken Price: 8.99 Extras: 
+2 Sandwich Type: Chicken Price: 12.97 Extras: Cucumbers, Lettuce
+3 Sandwich Type: Chicken Price: 8.99 Extras: 
+4 Sandwich Type: Chicken Price: 12.97 Extras: Cucumbers, Lettuce
+Price: 43.92
+--end of printing--

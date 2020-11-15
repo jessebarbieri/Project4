@@ -10,8 +10,20 @@ public abstract class Sandwich implements Customizable {
 
 
     public Sandwich(){
-        extras = new ArrayList<>();
+        extras = new ArrayList<>(6);
     }
+
+    public Sandwich(Sandwich s){
+        extras = new ArrayList<>(6);
+
+        for(Extra e : extras){
+
+            this.extras.add(e);
+
+        }
+
+    }
+
 
     /**
      * To string method that returns sandwich info
@@ -20,7 +32,7 @@ public abstract class Sandwich implements Customizable {
 
     @Override
     public String toString() {
-        return extras.toString();
+        return extras.toString().replace("[", "").replace("]", "");
     }
 
 }

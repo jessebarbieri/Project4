@@ -15,12 +15,25 @@ public class OrderLine {
      * @param price price of specific sandwich
      */
     public OrderLine(int lineNumber, Sandwich sandwich, double price){
+        //System.out.println("OrderLine Class - " + lineNumber);
         this.lineNumber = lineNumber;
         //this.lineNumber = ++Order.lineNumber;
         this.sandwich = sandwich;
         this.price = price;
 
         //this.price = sandwich.price();
+    }
+
+    public OrderLine(OrderLine obj){
+        //System.out.println("Copy constructor called");
+        this.lineNumber = obj.lineNumber;
+        this.sandwich = obj.sandwich;
+        this.price = sandwich.price();
+    }
+
+
+    public void setLineNumber(int lineNumber){
+        this.lineNumber = lineNumber;
     }
 
     @Override
@@ -35,7 +48,7 @@ public class OrderLine {
         else if (sandwich instanceof  Beef){
             sandwichString = "Beef";
         }
-        return lineNumber + " Sandwich Type: " + sandwichString + " Price: " + price;
+        return lineNumber + " Sandwich Type: " + sandwichString + " Price: " + price + " Extras: " + sandwich.toString();
     }
 
 

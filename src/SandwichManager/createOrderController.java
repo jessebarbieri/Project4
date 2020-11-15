@@ -109,7 +109,7 @@ public class createOrderController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Program is starting\n");
+        //System.out.println("Program is starting\n");
         sandwichType.setItems(FXCollections.observableArrayList(sandwichSelect));
         sandwichType.getSelectionModel().select(1);
         imageSelect.setImage(chickenPic);
@@ -134,44 +134,47 @@ public class createOrderController implements Initializable {
      * @param sandwich string selected from GUI
      */
 
-    int linenumber;
-
     public void addOrder (String sandwich) {
+        int size = addedList.size()+1;
+        Sandwich s;
         switch (sandwich) {
             case "Fish":
                 // create object
-                Sandwich f = new Fish();
-                f.extras = extraList;
-                currOrder.add(f);
-                finalIngredList.getItems().clear();
-                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+                s = new Fish(extraList);
+                //f.extras = extraList;
+                //System.out.println("Fish extras: " + f.extras);
+                currOrder.add(s); // added to orderlines
+                finalIngredList.getItems().clear(); // clearing 1st GUI
 
-                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+                // adding it to the list that will show up on the 2nd GUI
+                addedList.add(currOrder.getLine(currOrder.getLineNumber()-1));
+                // clearing extraList which is added to "addedList"
                 extraList.clear();
                 break;
             case "Chicken":
                 // create object
-                Sandwich c = new Chicken();
-                c.extras = extraList;
-                currOrder.add(c);
+                s = new Chicken(extraList);
+                //s.extras = extraList;
+                currOrder.add(s);
                 finalIngredList.getItems().clear();
-                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+                addedList.add(currOrder.getLine(currOrder.getLineNumber()-1));
 
-                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
             case "Beef":
                 // create object
-                Sandwich b = new Beef();
-                b.extras = extraList;
-                currOrder.add(b);
+                s = new Beef(extraList);
+                //s.extras = extraList;
+                currOrder.add(s);
                 finalIngredList.getItems().clear();
-                addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
+                addedList.add(currOrder.getLine(currOrder.getLineNumber()-1));
 
-                //addedList.add(currOrder.getLine(linenumber++) + " Extras: " + extraList.toString().replace("[", "").replace("]", ""));
                 extraList.clear();
                 break;
         }
+
+        //System.out.println("Add:" + currOrder.getLine(0));
+
     }
 
     public void setAddOrder(){
@@ -183,7 +186,8 @@ public class createOrderController implements Initializable {
         try {
             currentIngred = ingredList.getSelectionModel().getSelectedItem().toString();
         }catch (NullPointerException e){
-            System.out.println("Please pick an extra");
+            //System.out.println("Please pick an extra");
+            displayExtra();
         }
 
         if (!finalIngredList.getItems().contains(currentIngred)) {
@@ -222,7 +226,8 @@ public class createOrderController implements Initializable {
                 }
             }else{
                 // can't add
-                System.out.println("List is full! It has a size of..." + extraList.size());
+                //System.out.println("List is full! It has a size of..." + extraList.size());
+                displayLimit();
             }
 
         }
@@ -236,7 +241,8 @@ public class createOrderController implements Initializable {
         try {
             currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
         }catch (NullPointerException e){
-            System.out.println("Please select which item to remove");
+            //System.out.println("Please select which item to remove");
+            displayRemove();
         }
         finalIngredList.getItems().remove(currentIngred);
         // check which extra is there
@@ -277,7 +283,8 @@ public class createOrderController implements Initializable {
             secondaryStage.setTitle("Order Details");
             secondaryStage.show();
             control2.createOrderController(this);
-            control2.setDisplay(addedList, currOrder);
+            //System.out.println("Current order before second pass: " + currOrder.getLine(0));
+            control2.setDisplay(addedList, currOrder, extraList);
             //control2.sendOrder(currOrder, addedList);
 
             Main.mainStage.close();
@@ -285,7 +292,41 @@ public class createOrderController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
+            displayShowError();
         }
 
+    }
+
+
+    /**
+     * Alerts
+     */
+    public static void displayExtra(){
+        Alert errorAlert = new Alert(Alert.AlertType.WARNING);
+        errorAlert.setHeaderText("Order status");
+        errorAlert.setContentText("Please select an extra(s)!");
+        errorAlert.showAndWait();
+    }
+
+    public static void displayRemove(){
+        Alert errorAlert = new Alert(Alert.AlertType.WARNING);
+        errorAlert.setHeaderText("Order status");
+        errorAlert.setContentText("Please select an extra to remove!");
+        errorAlert.showAndWait();
+    }
+
+    public static void displayShowError(){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText("Order status");
+        errorAlert.setContentText("Something is wrong with the order!");
+        errorAlert.showAndWait();
+    }
+
+    public static void displayLimit(){
+        //List is full! It has a size of..." + extraList.size()
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText("Order status");
+        errorAlert.setContentText("You reached the limit for extras!");
+        errorAlert.showAndWait();
     }
 }
