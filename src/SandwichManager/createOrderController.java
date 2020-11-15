@@ -23,6 +23,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.security.spec.ECField;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 
@@ -87,24 +88,27 @@ public class createOrderController implements Initializable {
      * This void method sets the image that correlates to the proper selected sandwich
      */
     public void setImageSelect() {
-        if (sandwichType.getSelectionModel().getSelectedIndex() == 0) {
+        int fish = 0;
+        int chicken = 1;
+        int beef = 2;
+        if (sandwichType.getSelectionModel().getSelectedIndex() == fish) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(fishPic);
             basicList.setItems(basicFish);
-            viewPrice.setText("$12.99");
-        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 1) {
+            viewPrice.setText("12.99");
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == chicken) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(chickenPic);
             basicList.setItems(basicChicken);
-            viewPrice.setText("$8.99");
-        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 2) {
+            viewPrice.setText("8.99");
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == beef) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(beefPic);
             basicList.setItems(basicBeef);
-            viewPrice.setText("$10.99");
+            viewPrice.setText("10.99");
         }
     }
 
@@ -120,7 +124,7 @@ public class createOrderController implements Initializable {
         sandwichType.getSelectionModel().select(1);
         imageSelect.setImage(chickenPic);
         basicList.setItems(basicChicken);
-        viewPrice.setText("$8.99");
+        viewPrice.setText("8.99");
         sandwichType.getSelectionModel().select("Chicken");
         basicList.setDisable(true);
         ingredList.setItems(ingredientList);
@@ -184,9 +188,32 @@ public class createOrderController implements Initializable {
     }
 
     public void setAddOrder(){
-            addOrder(sandwichType.getSelectionModel().getSelectedItem());
+        extraTotal = 0;
+        totalPrice = 0;
+
+        // add selected item to list
+        addOrder(sandwichType.getSelectionModel().getSelectedItem());
+
+        int fish = 0;
+        int chicken = 1;
+        int beef = 2;
+        if(sandwichType.getSelectionModel().getSelectedIndex() == fish){
+            viewPrice.setText("12.99");
+        }else if(sandwichType.getSelectionModel().getSelectedIndex() == chicken){
+            viewPrice.setText("8.99");
+        }else if (sandwichType.getSelectionModel().getSelectedIndex() == beef){
+            viewPrice.setText("10.99");
+        }
+
     }
 
+
+    double extraTotal = 0;
+    double totalPrice = 0;
+    public void setTotalPrice(){
+        //System.out.println("Total Price is: " + viewPrice.getText());
+        totalPrice = Double.parseDouble(viewPrice.getText());
+    }
     public void setAddIngred() {
         String currentIngred = "";
         try {
@@ -196,38 +223,60 @@ public class createOrderController implements Initializable {
             displayExtra();
         }
 
+        setTotalPrice();
+        //System.out.println("Price of sandwich " + totalPrice);
         if (!finalIngredList.getItems().contains(currentIngred)) {
             if(extraList.size() < 6){
                 // add
                 if(currentIngred.equals(Extra.American_Cheese.toString())){
                     extraList.add(Extra.American_Cheese);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Cucumbers.toString())){
                     extraList.add(Extra.Cucumbers);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Lettuce.toString())){
                     extraList.add(Extra.Lettuce);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Mayo.toString())){
                     extraList.add(Extra.Mayo);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Mustard.toString())){
                     extraList.add(Extra.Mustard);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Olives.toString())){
                     extraList.add(Extra.Olives);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Pickles.toString())){
                     extraList.add(Extra.Pickles);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Red_Onion.toString())){
                     extraList.add(Extra.Red_Onion);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Swiss_Cheese.toString())){
                     extraList.add(Extra.Swiss_Cheese);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }else if(currentIngred.equals(Extra.Tomato.toString())){
                     extraList.add(Extra.Tomato);
+                    totalPrice = 1.99 + totalPrice;
+
                     finalIngredList.getItems().add(currentIngred);
                 }
             }else{
@@ -236,6 +285,9 @@ public class createOrderController implements Initializable {
                 displayLimit();
             }
 
+            DecimalFormat df = new DecimalFormat("#,##0.00");
+            viewPrice.setText(df.format(totalPrice));
+            //extraTotal = 0;
         }
 
     }
@@ -243,7 +295,7 @@ public class createOrderController implements Initializable {
 
     public void setRemoveIngred(){
         String currentIngred = "";
-
+        setTotalPrice();
         try {
             currentIngred = (finalIngredList.getSelectionModel().getSelectedItem()).toString();
         }catch (NullPointerException e){
@@ -254,25 +306,50 @@ public class createOrderController implements Initializable {
         // check which extra is there
         if(currentIngred.equals(Extra.American_Cheese.toString())){
             extraList.remove(Extra.American_Cheese);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Cucumbers.toString())){
             extraList.remove(Extra.Cucumbers);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Lettuce.toString())){
             extraList.remove(Extra.Lettuce);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Mayo.toString())){
             extraList.remove(Extra.Mayo);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Mustard.toString())){
             extraList.remove(Extra.Mustard);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Olives.toString())){
             extraList.remove(Extra.Olives);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Pickles.toString())){
             extraList.remove(Extra.Pickles);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Red_Onion.toString())){
             extraList.remove(Extra.Red_Onion);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Swiss_Cheese.toString())){
             extraList.remove(Extra.Swiss_Cheese);
+            totalPrice = totalPrice - 1.99;
+
         }else if(currentIngred.equals(Extra.Tomato.toString())){
             extraList.remove(Extra.Tomato);
+            totalPrice = totalPrice - 1.99;
+
         }
+
+
+        // set total price
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        viewPrice.setText(df.format(totalPrice));
     }
 
 
