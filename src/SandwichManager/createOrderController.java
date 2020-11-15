@@ -88,19 +88,22 @@ public class createOrderController implements Initializable {
      * This void method sets the image that correlates to the proper selected sandwich
      */
     public void setImageSelect() {
-        if (sandwichType.getSelectionModel().getSelectedIndex() == 0) {
+        int fish = 0;
+        int chicken = 1;
+        int beef = 2;
+        if (sandwichType.getSelectionModel().getSelectedIndex() == fish) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(fishPic);
             basicList.setItems(basicFish);
             viewPrice.setText("12.99");
-        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 1) {
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == chicken) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(chickenPic);
             basicList.setItems(basicChicken);
             viewPrice.setText("8.99");
-        } else if (sandwichType.getSelectionModel().getSelectedIndex() == 2) {
+        } else if (sandwichType.getSelectionModel().getSelectedIndex() == beef) {
             imageSelect.fitWidthProperty();
             imageSelect.fitHeightProperty();
             imageSelect.setImage(beefPic);
@@ -187,7 +190,21 @@ public class createOrderController implements Initializable {
     public void setAddOrder(){
         extraTotal = 0;
         totalPrice = 0;
+
+        // add selected item to list
         addOrder(sandwichType.getSelectionModel().getSelectedItem());
+
+        int fish = 0;
+        int chicken = 1;
+        int beef = 2;
+        if(sandwichType.getSelectionModel().getSelectedIndex() == fish){
+            viewPrice.setText("12.99");
+        }else if(sandwichType.getSelectionModel().getSelectedIndex() == chicken){
+            viewPrice.setText("8.99");
+        }else if (sandwichType.getSelectionModel().getSelectedIndex() == beef){
+            viewPrice.setText("10.99");
+        }
+
     }
 
 

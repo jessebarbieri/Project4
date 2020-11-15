@@ -27,5 +27,10 @@
          <font>
             <Font size="25.0" />
          </font></Label>
+      <Label layoutX="405.0" layoutY="185.0" prefHeight="27.0" prefWidth="17.0" text="\$">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

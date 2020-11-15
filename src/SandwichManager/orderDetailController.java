@@ -183,6 +183,10 @@ public class orderDetailController {
             writer.println("Price: $" + price.getText());
             writer.println("--end of printing--");
             writer.close();
+
+            setClear();
+            price.setText("0.00");
+
             displayCorrectFile();
             //System.out.println("File created to output accounts by Date Opened\n");
         } catch (IOException e) {
