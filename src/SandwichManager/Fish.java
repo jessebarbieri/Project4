@@ -44,4 +44,10 @@ public class Fish extends Sandwich {
     public boolean remove(Object obj) {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return extras.toString().replace("[", "").replace("]", "");
+    }
+
 }

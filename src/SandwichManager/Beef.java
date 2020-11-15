@@ -32,4 +32,10 @@ public class Beef extends Sandwich {
     public boolean remove(Object obj) {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return extras.toString().replace("[", "").replace("]", "");
+    }
+
 }
