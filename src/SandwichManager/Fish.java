@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Fish extends Sandwich {
 
+    /**
+     * Constructor
+     * @param extras arraylist of extras
+     */
     public Fish(ArrayList<Extra> extras){
         for(Extra e : extras){
             this.extras.add(e);
@@ -12,6 +16,10 @@ public class Fish extends Sandwich {
         //this.extras = extras;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double price() {
         double returnPrice = 12.99;
@@ -19,6 +27,11 @@ public class Fish extends Sandwich {
         return returnPrice;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean add(Object obj) {
         if(extras.size() > MAX_EXTRAS){

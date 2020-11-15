@@ -24,6 +24,10 @@ public class OrderLine {
         //this.price = sandwich.price();
     }
 
+    /**
+     * Copy constructor
+     * @param obj object that will be copied
+     */
     public OrderLine(OrderLine obj){
         //System.out.println("Copy constructor called");
         this.lineNumber = obj.lineNumber;
@@ -32,10 +36,18 @@ public class OrderLine {
     }
 
 
+    /**
+     * Sets line number
+     * @param lineNumber to be set
+     */
     public void setLineNumber(int lineNumber){
         this.lineNumber = lineNumber;
     }
 
+    /**
+     * To string method
+     * @return string representing object
+     */
     @Override
     public String toString(){
         String sandwichString = "";

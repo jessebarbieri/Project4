@@ -14,7 +14,7 @@ import java.util.Objects;
 import static javafx.application.Application.launch;
 
 /**
- *
+ * main sets stage for order creation
  */
 public class Main extends Application{
 

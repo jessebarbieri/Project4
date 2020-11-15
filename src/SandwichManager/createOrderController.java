@@ -1,3 +1,6 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
 import javafx.collections.FXCollections;
@@ -23,6 +26,9 @@ import java.security.spec.ECField;
 import java.util.*;
 import java.util.List;
 
+/**
+ * Gets the createOrder Controller ready
+ */
 public class createOrderController implements Initializable {
 
     public Order currOrder = new Order();

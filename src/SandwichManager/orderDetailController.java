@@ -25,6 +25,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * gets the Order details page ready
+ */
 public class orderDetailController {
     Order currOrder1;
     @FXML

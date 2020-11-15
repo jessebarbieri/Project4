@@ -1,3 +1,6 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
 import javafx.beans.Observable;
@@ -22,6 +25,10 @@ public class Order implements Customizable {
         lineNumber = 0;
     }
 
+    /**
+     * Assists with getting price
+     * @return double price total
+     */
     public double getPrice(){
         double res = 0;
         // string at 5 for price
@@ -34,6 +41,10 @@ public class Order implements Customizable {
         return res;
     }
 
+    /**
+     * Assists with exporting
+     * @return string array with items
+     */
     public String[] getOrders(){
         String[] res = new String[orderlines.size()];
 
@@ -76,6 +87,11 @@ public class Order implements Customizable {
         return true;
     }
 
+    /**
+     * Add same item again
+     * @param ln where it is
+     * @return boolean if true
+     */
     public boolean addSame(int ln){
         //System.out.println("HERE " + orderlines.get(ln));
         OrderLine sandwichpo = new OrderLine(orderlines.get(ln));
@@ -87,11 +103,20 @@ public class Order implements Customizable {
         return false;
     }
 
+    /**
+     * gets linenumber
+     * @return int linenumber
+     */
     public int getLineNumber(){
         //System.out.println("Linenumber - " + lineNumber);
         return lineNumber;
     }
 
+    /**
+     * Gets item as a string
+     * @param lineNumber int where it is
+     * @return String representation of item
+     */
     public String getLine(int lineNumber){
         //System.out.println(lineNumber);
         String line = orderlines.get(lineNumber).toString();
@@ -99,10 +124,20 @@ public class Order implements Customizable {
         return line;
     }
 
+    /**
+     * Gets orderline object
+     * @param lineNumber where the item is
+     * @return orderline item needed
+     */
     public OrderLine getOLine(int lineNumber){
         return orderlines.get(lineNumber);
     }
 
+    /**
+     * Removes item from order
+     * @param obj Object to be removed
+     * @return res if removed or not
+     */
     @Override
     public boolean remove(Object obj) {
         boolean res = true;
