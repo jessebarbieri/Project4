@@ -35,7 +35,7 @@ public class Chicken extends Sandwich{
 
     @Override
     public String toString() {
-        return extras.toString().replace("[", "").replace("]", "");
+        return extras.toString().replace("[", "").replace("]", "") + " Basic: Fried Chicken, Spicy Sauce, Pickles";
     }
 
 }

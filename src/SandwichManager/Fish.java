@@ -47,7 +47,7 @@ public class Fish extends Sandwich {
 
     @Override
     public String toString() {
-        return extras.toString().replace("[", "").replace("]", "");
+        return extras.toString().replace("[", "").replace("]", "")+ " Basic: Grilled Snapper, Cilantro, Lime";
     }
 
 }
