@@ -47,7 +47,7 @@ public class Beef extends Sandwich {
 
     @Override
     public String toString() {
-        return extras.toString().replace("[", "").replace("]", "") + " Base Ingredients: Roast Beef, Provolone Cheese, Mustard";
+        return extras.toString().replace("[", "").replace("]", "") + " Basic: Roast Beef, Provolone Cheese, Mustard";
     }
 
 }
