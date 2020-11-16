@@ -155,7 +155,7 @@ public class Order implements Customizable {
         //System.out.println("Remove Orderline: - " + orderlines.toString());
 
         reorder();
-        return false;
+        return res;
     }
 
 

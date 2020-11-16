@@ -18,7 +18,7 @@ public class Beef extends Sandwich {
 
     /**
      * Override price method returns the price for the Beef sandwich, including extra ingredients
-     * @return
+     * @return returnPrice, the price after incorporating extra ingredients
      */
     @Override
     public double price() {
