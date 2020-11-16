@@ -1,5 +1,11 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
+/**
+ * This class holds the extra ingredients as enumerators
+ */
 enum Extra{
     Olives,
     Tomato,

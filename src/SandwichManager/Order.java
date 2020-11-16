@@ -1,6 +1,9 @@
 /**
  * @author Arya Kulkarni and Jesse Barbieri
  */
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
 import javafx.beans.Observable;
@@ -54,7 +57,6 @@ public class Order implements Customizable {
         return res;
     }
 
-
     /**
      * Adding sandwich to OrderLines
      * @param obj
@@ -87,6 +89,9 @@ public class Order implements Customizable {
         return true;
     }
 
+    /**
+     * Method that clears the entire order
+     */
     public void clear(){
         orderlines.clear();
         //System.out.println("Orderlines size: " + orderlines.size());
@@ -158,8 +163,6 @@ public class Order implements Customizable {
         return res;
     }
 
-
-
     /**
      * Reorders the orderlines arraylist to account for removing orders
      */
@@ -169,7 +172,6 @@ public class Order implements Customizable {
             element.setLineNumber(i+1);
             orderlines.set(i, element);
         }
-        //System.out.println("Orderlines: " + orderlines.toString());
     }
 
 }

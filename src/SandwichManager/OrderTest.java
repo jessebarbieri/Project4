@@ -1,3 +1,6 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
 import org.junit.jupiter.api.Test;
@@ -7,6 +10,9 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * JUnit Test Class
+ */
 class OrderTest {
 
     Order testOrder = new Order();

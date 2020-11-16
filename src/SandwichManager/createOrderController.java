@@ -36,28 +36,25 @@ public class createOrderController implements Initializable {
 
     public Order currOrder = new Order();
 
+    /**
+     * This method is the default constructor of the controller
+     */
     public createOrderController() {
         this.currOrder = currOrder;
     }
 
     @FXML
     AnchorPane mainAnchor;
-
     @FXML
     ComboBox<String> sandwichType;
-
     @FXML
     Button addOrder;
-
     @FXML
     ListView basicList;
-
     @FXML
     ListView ingredList;
-
     @FXML
     ListView finalIngredList;
-
     @FXML
     Label viewPrice;
 
@@ -144,11 +141,9 @@ public class createOrderController implements Initializable {
     }
 
     /**
-     * add order selected to the array
-     *
+     * Add order selected to the array
      * @param sandwich string selected from GUI
      */
-
     public void addOrder (String sandwich) {
         int size = addedList.size()+1;
         Sandwich s;
@@ -193,6 +188,9 @@ public class createOrderController implements Initializable {
 
     }
 
+    /**
+     * This method allows the sandwich to be added to the order and the ListView
+     */
     public void setAddOrder(){
         extraTotal = 0;
         totalPrice = 0;
@@ -213,13 +211,20 @@ public class createOrderController implements Initializable {
 
     }
 
-
     double extraTotal = 0;
     double totalPrice = 0;
+
+    /**
+     * This method sets the total price of the order, which is displayed in both stages
+     */
     public void setTotalPrice(){
         //System.out.println("Total Price is: " + viewPrice.getText());
         totalPrice = Double.parseDouble(viewPrice.getText());
     }
+
+    /**
+     * This method allows the user to add extra ingredients
+     */
     public void setAddIngred() {
         String currentIngred = "";
         try {
@@ -298,7 +303,9 @@ public class createOrderController implements Initializable {
 
     }
 
-
+    /**
+     * This method allows the user to remove extra ingredients
+     */
     public void setRemoveIngred(){
         String currentIngred = "";
         setTotalPrice();
@@ -361,6 +368,9 @@ public class createOrderController implements Initializable {
 
     public static Stage secondStage = new Stage();
 
+    /**
+     * This method creates the second stage when the "Show Order" button is pressed. Opens a new window and waits.
+     */
     public void setShowOrder(){
         try {
             Stage secondaryStage = new Stage();
@@ -385,7 +395,7 @@ public class createOrderController implements Initializable {
 
 
     /**
-     * Alerts
+     * Alert is displayed when no extra has been selected but the user tries to add it
      */
     public static void displayExtra(){
         Alert errorAlert = new Alert(Alert.AlertType.WARNING);
@@ -394,6 +404,9 @@ public class createOrderController implements Initializable {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alert displays when the user attempts to remove an extra without selection
+     */
     public static void displayRemove(){
         Alert errorAlert = new Alert(Alert.AlertType.WARNING);
         errorAlert.setHeaderText("Order status");
@@ -401,6 +414,9 @@ public class createOrderController implements Initializable {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alert displays when the "Show Order" button throws an error
+     */
     public static void displayShowError(){
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("Order status");
@@ -408,6 +424,9 @@ public class createOrderController implements Initializable {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alerts when the user attempts to add more than 6 extras to a sandwich
+     */
     public static void displayLimit(){
         //List is full! It has a size of..." + extraList.size()
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -416,6 +435,9 @@ public class createOrderController implements Initializable {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alerts when the user successfully adds a sandwich to the order
+     */
     public static void displayAdded(){
         Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
         errorAlert.setHeaderText("Order status");

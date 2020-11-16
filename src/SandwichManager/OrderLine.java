@@ -1,3 +1,6 @@
+/**
+ * @author Arya Kulkarni and Jesse Barbieri
+ */
 package SandwichManager;
 
 /**
@@ -15,13 +18,9 @@ public class OrderLine {
      * @param price price of specific sandwich
      */
     public OrderLine(int lineNumber, Sandwich sandwich, double price){
-        //System.out.println("OrderLine Class - " + lineNumber);
         this.lineNumber = lineNumber;
-        //this.lineNumber = ++Order.lineNumber;
         this.sandwich = sandwich;
         this.price = price;
-
-        //this.price = sandwich.price();
     }
 
     /**
@@ -29,12 +28,10 @@ public class OrderLine {
      * @param obj object that will be copied
      */
     public OrderLine(OrderLine obj){
-        //System.out.println("Copy constructor called");
         this.lineNumber = obj.lineNumber;
         this.sandwich = obj.sandwich;
         this.price = sandwich.price();
     }
-
 
     /**
      * Sets line number

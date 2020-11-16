@@ -12,7 +12,7 @@
       <Button fx:id="addButton" layoutX="28.0" layoutY="311.0" mnemonicParsing="false" onAction="#addOrder" text="(+) Same order" />
       <Button fx:id="removeButton" layoutX="28.0" layoutY="347.0" mnemonicParsing="false" onAction="#removeOrder" text="(-) Same order" />
       <Button fx:id="export" layoutX="481.0" layoutY="347.0" mnemonicParsing="false" onAction="#setExport" text="Export Order" />
-      <TextField fx:id="price" layoutX="408.0" layoutY="311.0" />
+      <TextField fx:id="price" editable="false" layoutX="408.0" layoutY="311.0" />
       <Button fx:id="back" layoutX="157.0" layoutY="311.0" mnemonicParsing="false" onAction="#setBack" text="Back" />
       <Button fx:id="clear" layoutX="157.0" layoutY="347.0" mnemonicParsing="false" onAction="#setClear" text="Clear" />
       <Label layoutX="341.0" layoutY="316.0" text="Total Price" />

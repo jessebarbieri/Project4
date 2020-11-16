@@ -38,25 +38,22 @@ public class orderDetailController {
 
     @FXML
     Button clear;
-
     @FXML
     Button export;
-
     @FXML
-
     Button back;
-
     @FXML
     Button removeButton;
-
     @FXML
     Button addButton;
-
     @FXML
     TextField price;
 
     ObservableList<String> removeList = FXCollections.observableArrayList();
 
+    /**
+     * Adds the order to this controller when an order is added from the createOrderController
+     */
     public void addOrder(){
         try {
             String addString = display.getSelectionModel().getSelectedItem().toString();
@@ -86,18 +83,29 @@ public class orderDetailController {
         }
     }
 
+    /**
+     * Sets the displayed price of the order
+     * @param val, the current price of the order
+     */
     public void setPrice(Double val){
         String setP = String.valueOf(val);
-        //System.out.println("Setting Price");
-        //System.out.println("Setting Price");
         price.setText(setP);
     }
 
-
+    /**
+     * Method that creates an instance of the createOrderController
+     * @param controller
+     */
     public void createOrderController(createOrderController controller){
         controller = this.controller;
     }
 
+    /**
+     * Displays the data passed from the createOrderController
+     * @param list, an ObservableList of the items listed in the createOrderController
+     * @param currOrder, the current order of sandwiches
+     * @param extraList, the ArrayList of extras
+     */
     public void setDisplay(ObservableList list, Order currOrder, ArrayList<Extra> extraList){
         //System.out.println(currOrder.getLine(0));
         display.setItems(list);
@@ -110,14 +118,17 @@ public class orderDetailController {
 
     }
 
+    /**
+     * Closes this stage and returns to createOrderController
+     */
     public void setBack(){
-        //Main.mainStage.show();
-
         createOrderController.secondStage.close();
 
     }
 
-
+    /**
+     * This method allows a sandwich to be removed
+     */
     public void removeOrder(){
         try {
             String removeString = display.getSelectionModel().getSelectedItem().toString();
@@ -157,15 +168,9 @@ public class orderDetailController {
         }
     }
 
-    public void initialize(URL url, ResourceBundle resourceBundle){
-
-    }
-
-    public void setBackButton(){
-        //System.out.println("Send to Order Creation page");
-        // close this page and open the first one
-    }
-
+    /**
+     * Clears all sandwiches from an order
+     */
     public void setClear(){
         display.getItems().clear();
         currOrder1.clear();
@@ -174,6 +179,9 @@ public class orderDetailController {
 
     }
 
+    /**
+     * Exports a .txt file containing the current order and correlating information
+     */
     public void setExport(){
         try {
             File myObj = new File("orderOutput.txt");
@@ -199,7 +207,7 @@ public class orderDetailController {
     }
 
     /**
-     * Alerts
+     * Alert is displayed when a user tries to duplicate an order without making a selection
      */
     public static void displayAddError(){
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -208,6 +216,9 @@ public class orderDetailController {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alert is displayed when a user tries to remove an order without making a selection
+     */
     public static void displayRemoveError(){
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("Order status");
@@ -215,6 +226,9 @@ public class orderDetailController {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alert is displayed when the order is not able to export
+     */
     public static void displayFileError() {
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("File could not be exported");
@@ -222,6 +236,9 @@ public class orderDetailController {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Displays when the file has been successfully exported
+     */
     public static void displayCorrectFile(){
         Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
         errorAlert.setHeaderText("Success!");
@@ -229,6 +246,9 @@ public class orderDetailController {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Alert displays to warn the user that the order is about to be cleared
+     */
     public static void displaySetClear(){
         Alert errorAlert = new Alert(Alert.AlertType.WARNING);
         errorAlert.setHeaderText("CLEAR DATA?");

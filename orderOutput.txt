@@ -1,3 +1,4 @@
 --Printing Order --
-Price: $0.00
+1 Sandwich Type: Chicken Price: 12.97 Extras: Cucumbers, Mayo Basic: Fried Chicken, Spicy Sauce, Pickles
+Price: $12.97
 --end of printing--

@@ -31,6 +31,11 @@ public class Main extends Application{
 
     public static Stage mainStage = new Stage();
 
+    /**
+     * Starts the program and displays the primary stage
+     * @param primaryStage, the first scene of the project
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
