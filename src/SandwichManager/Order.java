@@ -56,7 +56,7 @@ public class Order implements Customizable {
 
 
     /**
-     * Adding extras to the order
+     * Adding sandwich to OrderLines
      * @param obj
      * @return
      */

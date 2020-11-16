@@ -27,7 +27,7 @@ class OrderTest {
     Sandwich fish = new Fish(fishExras);
    // Sandwich fish1 = new Fish(null);
     Sandwich beef = new Beef(beefExtras);
-   // Sandwich beef1 = new Beef(null);
+    // Sandwich beef1 = new Beef(null);
 
 
     @Test
@@ -36,7 +36,7 @@ class OrderTest {
 
     @Test
     void getOrders() {
-        // This tests the amount of sandwiches in the order
+        // This tests the amount of sandwiches in the order after addition
         testOrder.add(chicken);
         assertEquals(1, testOrder.getOrders().length);
         testOrder.add(fish);
@@ -44,9 +44,13 @@ class OrderTest {
         testOrder.add(beef);
         assertEquals(3,testOrder.getOrders().length);
 
-        // Works with remove too
+        // and removal
         testOrder.remove(1);
         assertEquals(2,testOrder.getOrders().length);
+        testOrder.remove(1);
+        assertEquals(1, testOrder.getOrders().length);
+        testOrder.remove(1);
+        assertEquals(0,testOrder.getOrders().length);
     }
 
     @Test
@@ -88,6 +92,9 @@ class OrderTest {
 
     @Test
     void getOLine() {
+        testOrder2.add(fish);
+        assertEquals("1 Sandwich Type: Fish Price: 12.99 Extras:  Basic: Grilled Snapper, Cilantro, Lime", testOrder2.getOLine(0).toString());
+        //testOrder2.add()
     }
 
     @Test
@@ -97,7 +104,7 @@ class OrderTest {
         testOrder1.add(chicken);
         testOrder1.remove(1);
         testOrder1.add(fish);
-        assertEquals("1 Sandwich Type: Fish Price: 12.99 Extras: ",testOrder1.getLine(0));
+        assertEquals("1 Sandwich Type: Fish Price: 12.99 Extras:  Basic: Grilled Snapper, Cilantro, Lime",testOrder1.getLine(0));
 
     }
 

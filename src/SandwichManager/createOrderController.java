@@ -188,6 +188,7 @@ public class createOrderController implements Initializable {
                 break;
         }
 
+        displayAdded();
         //System.out.println("Add:" + currOrder.getLine(0));
 
     }
@@ -374,13 +375,6 @@ public class createOrderController implements Initializable {
             mainAnchor.setDisable(true);
             secondaryStage.showAndWait();
             mainAnchor.setDisable(false);
-            //secondaryStage.show();
-            //System.out.println("Current order before second pass: " + currOrder.getLine(0));
-
-            //control2.sendOrder(currOrder, addedList);
-
-            //Main.mainStage.close();
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -419,6 +413,13 @@ public class createOrderController implements Initializable {
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("Order status");
         errorAlert.setContentText("You reached the limit for extras!");
+        errorAlert.showAndWait();
+    }
+
+    public static void displayAdded(){
+        Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+        errorAlert.setHeaderText("Order status");
+        errorAlert.setContentText("Sandwich Successfully Added to Order!");
         errorAlert.showAndWait();
     }
 }

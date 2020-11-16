@@ -1,7 +1,3 @@
 --Printing Order --
-1 Sandwich Type: Fish Price: 16.97 Extras: Cucumbers, Lettuce Basic: Grilled Snapper, Cilantro, Lime
-2 Sandwich Type: Fish Price: 16.97 Extras: Cucumbers, Lettuce Basic: Grilled Snapper, Cilantro, Lime
-3 Sandwich Type: Fish Price: 16.97 Extras: Cucumbers, Lettuce Basic: Grilled Snapper, Cilantro, Lime
-4 Sandwich Type: Fish Price: 18.96 Extras: American_Cheese, Cucumbers, Mayo Basic: Grilled Snapper, Cilantro, Lime
-Price: $69.87
+Price: $0.00
 --end of printing--
