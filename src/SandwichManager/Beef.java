@@ -3,8 +3,12 @@ package SandwichManager;
 import java.util.ArrayList;
 
 public class Beef extends Sandwich {
-
+    /**
+     * Default constructor for the Beef sandwich
+     * @param extras, extras added to the sandwich
+     */
     public Beef(ArrayList<Extra> extras){
+
         for(Extra e : extras){
             this.extras.add(e);
         }
@@ -12,6 +16,10 @@ public class Beef extends Sandwich {
         //this.extras = extras;
     }
 
+    /**
+     * Override price method returns the price for the Beef sandwich, including extra ingredients
+     * @return
+     */
     @Override
     public double price() {
         double returnPrice = 10.99;
@@ -19,7 +27,11 @@ public class Beef extends Sandwich {
         return returnPrice;
     }
 
-
+    /**
+     * Method that allows the addition of extra ingredients
+     * @param obj
+     * @return
+     */
     @Override
     public boolean add(Object obj) {
         if(extras.size() > MAX_EXTRAS){
@@ -35,7 +47,7 @@ public class Beef extends Sandwich {
 
     @Override
     public String toString() {
-        return extras.toString().replace("[", "").replace("]", "");
+        return extras.toString().replace("[", "").replace("]", "") + " Base Ingredients: Roast Beef, Provolone Cheese, Mustard";
     }
 
 }

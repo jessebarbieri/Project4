@@ -16,7 +16,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -37,6 +39,9 @@ public class createOrderController implements Initializable {
     public createOrderController() {
         this.currOrder = currOrder;
     }
+
+    @FXML
+    AnchorPane mainAnchor;
 
     @FXML
     ComboBox<String> sandwichType;
@@ -364,10 +369,14 @@ public class createOrderController implements Initializable {
             orderDetailController control2 = loader.getController();
             secondaryStage.setScene(new Scene(root, 600,480));
             secondaryStage.setTitle("Order Details");
-            secondaryStage.show();
             control2.createOrderController(this);
-            //System.out.println("Current order before second pass: " + currOrder.getLine(0));
             control2.setDisplay(addedList, currOrder, extraList);
+            mainAnchor.setDisable(true);
+            secondaryStage.showAndWait();
+            mainAnchor.setDisable(false);
+            //secondaryStage.show();
+            //System.out.println("Current order before second pass: " + currOrder.getLine(0));
+
             //control2.sendOrder(currOrder, addedList);
 
             //Main.mainStage.close();
