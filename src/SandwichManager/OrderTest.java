@@ -43,6 +43,10 @@ class OrderTest {
         assertEquals(2, testOrder.getOrders().length);
         testOrder.add(beef);
         assertEquals(3,testOrder.getOrders().length);
+
+        // Works with remove too
+        testOrder.remove(1);
+        assertEquals(2,testOrder.getOrders().length);
     }
 
     @Test
@@ -51,7 +55,6 @@ class OrderTest {
         assertTrue(testOrder.add(chicken));
         // Tests adding a sandwich with no extras added
         assertTrue(testOrder.add(beef));
-
 
         fish.extras.add(Extra.Mayo);
         fish.extras.add(Extra.Mustard);
@@ -63,6 +66,8 @@ class OrderTest {
 
         // Unable to add over 6 extras to a sandwich
         assertFalse(fish.add(fish.extras));
+        // Able to add with 6 extras, the error checking for that is done in the sandwich subclasses
+        assertTrue(testOrder.add(fish));
     }
 
     @Test
